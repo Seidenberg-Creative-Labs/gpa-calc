@@ -1,0 +1,25 @@
+:root {
+  --primary-color: #001974;
+  --table-header: #B9B9B9;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #FFFFFF;
+  min-height: 8vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: calc(10px + 2vmin);
+  color: var(--primary-color);
+  font-weight: bold;
+}
