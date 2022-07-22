@@ -1,5 +1,6 @@
 import reactLogo from './assets/images/logo.svg';
 import './App.css';
+import TableCourseInput from "./components/tables/TableCourseInput";
 
 const App = () => {
   return (
@@ -8,7 +9,8 @@ const App = () => {
         <img src={reactLogo} className="logo react" alt="logo" />
         <p>GPA Calculator</p>
       </header>
-      <body className="App-body">
+      <body className="body">
+        <TableCourseInput />
       </body>
     </div>
   );
