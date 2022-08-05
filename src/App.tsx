@@ -1,10 +1,16 @@
+import reactLogo from "./assets/images/logo.svg";
+import "./App.css";
+import 'react-dropdown/style.css';
+import WebHeader from "./components/WebHeader";
 import reactLogo from './assets/images/logo.svg';
 import './App.css';
 import TableCourseInput from "./components/tables/TableCourseInput";
 
 const App = () => {
+
   return (
     <div className="App">
+    <WebHeader/>
       <header className="header">
         <img src={reactLogo} className="logo react" alt="logo" />
         <p>GPA Calculator</p>
@@ -14,6 +20,7 @@ const App = () => {
       </body>
     </div>
   );
+
 };
 
 export default App;
