@@ -1,13 +1,14 @@
-import React, {useState, useCallback, useEffect, useMemo, useRef} from 'react';
+import React, {useState, useCallback, useEffect, useMemo, useRef, ChangeEvent} from 'react';
 
 import {
-    Column,
-    Table,
     ColumnDef,
     useReactTable,
     getCoreRowModel,
-    flexRender, createColumnHelper,
+    flexRender,
 } from '@tanstack/react-table'
+import TextInput from "../Input/TextInput";
+import {IoClose} from "react-icons/io5";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 declare module '@tanstack/react-table' {
     interface TableMeta {
@@ -16,13 +17,12 @@ declare module '@tanstack/react-table' {
 }
 
 type Course = {
-    id: number
-    courseTitle: string
-    credits: number
-    grade: number
-}
+    courseTitle: string;
+    credits: number;
+    grade: number;
+};
 
-const TableCourseInput = () => {
+const TableCourseInput = props => {
     const defaultColumn: Partial<ColumnDef<Course>> = {
         cell: ({ getValue, row: { index }, column: { id }, table }) =>  {
             const [value, setValue] = useState('');
@@ -32,9 +32,14 @@ const TableCourseInput = () => {
             };
 
             return (
-                <input
+                <TextInput
+                    // @ts-ignore
+                    type="text"
                     value={value as string}
-                    onChange={e => setValue(e.target.value)}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                        console.log('changeKey')
+                        setValue(e.target.value)
+                    }}
                     onBlur={onBlur}
                 />
             );
@@ -56,14 +61,13 @@ const TableCourseInput = () => {
         return [shouldSkip, skip] as const;
     };
 
-    const columnHelper = createColumnHelper<Course>();
-
     const columns = useMemo<ColumnDef<Course>[]>(
         () => [
             {
                 accessorKey: 'id',
                 header: '#',
                 footer: props => props.column.id,
+                cell: props => (<span style={{fontWeight: 'bold'}}>{props.row.index + 1 as number}</span>)
             },
             {
                 accessorKey: 'courseTitle',
@@ -80,18 +84,35 @@ const TableCourseInput = () => {
                 header: 'Grade *',
                 footer: props => props.column.id,
             },
+            {
+                accessorKey: 'deleteRow',
+                header: '',
+                cell: row => (
+                    <div
+                        style={{alignContent: 'center', justifyContent: 'center', cursor: 'pointer'}}
+                        onClick={() => {
+                            const dataCopy = [...data];
+                            dataCopy.splice(row.row.index, 1);
+                            console.log(JSON.stringify(row.row));
+                            setData(dataCopy);
+                        }}>
+                        <IoClose size={24} />
+                    </div>
+                )
+            },
         ],
         []
     );
 
-    const [data, setData] = useState([{id: 1, courseTitle: null, credits: null, grade: null}]);
+    const [data, setData] = useState(props.data);
 
     const table = useReactTable({
         // @ts-ignore
         data,
         columns,
+        defaultColumn,
         getCoreRowModel: getCoreRowModel(),
-
+        debugTable: true,
     });
 
     return (
@@ -116,18 +137,24 @@ const TableCourseInput = () => {
                 <tbody>
                 {table.getRowModel().rows.map(row => {
                     return (
-                        <tr key={row.id}>
-                            {row.getVisibleCells().map(cell => {
-                                return (
-                                    <td key={cell.id}>
-                                        {flexRender(
-                                            cell.column.columnDef.cell,
-                                            cell.getContext()
-                                        )}
-                                    </td>
-                                )
-                            })}
-                        </tr>
+                        // <TransitionGroup component="tbody">
+                        //     {data.map((data, index) => (
+                        //     <CSSTransition key={index} timeout={500} classNames="fade">
+                                <tr key={row.id}>
+                                    {row.getVisibleCells().map(cell => {
+                                        return (
+                                            <td key={cell.id}>
+                                                {flexRender(
+                                                    cell.column.columnDef.cell,
+                                                    cell.getContext()
+                                                )}
+                                            </td>
+                                        )
+                                    })}
+                                </tr>
+                        //     </CSSTransition>
+                        //     ))}
+                        // </TransitionGroup>
                     )})
                 }
                 </tbody>
