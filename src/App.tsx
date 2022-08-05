@@ -2,8 +2,6 @@ import reactLogo from "./assets/images/logo.svg";
 import "./App.css";
 import 'react-dropdown/style.css';
 import WebHeader from "./components/WebHeader";
-import reactLogo from './assets/images/logo.svg';
-import './App.css';
 import TableCourseInput from "./components/tables/TableCourseInput";
 
 const App = () => {
