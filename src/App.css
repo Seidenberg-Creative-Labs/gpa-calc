@@ -35,7 +35,7 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.header{
+.pageHeader{
   display: flex;
   flex: 1;
   flex-direction: row;
