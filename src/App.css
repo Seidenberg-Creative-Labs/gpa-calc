@@ -44,6 +44,17 @@ body {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.pageHeader{
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-content: center;
+  position: absolute;
+  top: 0px;
+  padding: 1vw;
+}
+
 table {
   border: 1px solid lightgray;
   border-radius: 15px;
