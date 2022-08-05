@@ -3,6 +3,9 @@ import reactLogo from './assets/images/logo.svg';
 import './App.css';
 import TableCourseInput from "./components/tables/TableCourseInput";
 import Button from "./components/Button";
+import "react-dropdown/style.css";
+import WebHeader from "./components/WebHeader";
+import Drop from "./components/Drop";
 
 const App = () => {
   const [courseTableData, setCourseTableData] = useState([
@@ -14,8 +17,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="header">
-        <img src={reactLogo} className="logo react" alt="logo" />
-        <p>GPA Calculator</p>
+        <WebHeader />
       </header>
       <body className="body">
         <TableCourseInput data={courseTableData} />
