@@ -3,6 +3,11 @@
   --table-header: #B9B9B9;
 }
 
+body {
+  background-color: slategray;
+  flex-direction: column;
+}
+
 #root {
   max-width: 1280px;
   margin: 0;
@@ -24,7 +29,7 @@
 }
 
 .body {
-  padding-left: 6vw;
+  padding-top: 18vh;
 }
 
 .logo {
@@ -42,7 +47,8 @@
 table {
   border: 1px solid lightgray;
   border-radius: 15px;
-  padding: 0.5vw;
+  padding: 0.5vw 0.5vw 2vh;
+  margin-bottom: 4vh;
 }
 
 th {
@@ -57,4 +63,11 @@ tfoot {
 
 tfoot th {
   font-weight: normal;
+}
+
+#btnMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 82%;
 }
