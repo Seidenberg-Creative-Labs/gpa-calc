@@ -23,6 +23,10 @@
   font-weight: bold;
 }
 
+.body {
+  padding-left: 6vw;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -44,4 +48,24 @@
   position: absolute;
   top: 0px;
   padding: 1vw;
+}
+
+table {
+  border: 1px solid lightgray;
+  border-radius: 15px;
+  padding: 0.5vw;
+}
+
+th {
+  /*border-bottom: 1px solid lightgray;*/
+  /*border-right: 1px solid lightgray;*/
+  padding: 2px 4px;
+}
+
+tfoot {
+  color: gray;
+}
+
+tfoot th {
+  font-weight: normal;
 }
