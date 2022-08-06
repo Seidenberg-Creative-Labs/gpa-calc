@@ -53,6 +53,20 @@ body {
   position: absolute;
   top: 0px;
   padding: 1vw;
+} 
+
+#paceSCIS{
+  max-width: 300px;
+  max-height: 150px;
+  height: auto;
+  width: auto;
+}
+
+#paceOoA{
+  max-width: 230px;
+  max-height: 170px;
+  height: auto;
+  width: auto;
 }
 
 table {
