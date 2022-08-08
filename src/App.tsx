@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import reactLogo from './assets/images/logo.svg';
 import './App.css';
 import TableCourseInput from "./components/tables/TableCourseInput";
 import Button from "./components/Button";
@@ -20,6 +19,7 @@ const App = () => {
         <WebHeader />
       </header>
       <body className="body">
+        <Drop/>
         <TableCourseInput data={courseTableData} />
         <div id='btnMenu'>
             <Button radius={9} color='#fafafa' text='Add Course' width='150px' height='45px' onClick={() => {}} />
