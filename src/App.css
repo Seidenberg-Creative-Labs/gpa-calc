@@ -1,9 +1,5 @@
 @import url("https://fonts.google.com/?query=Barlow");
 
-:root {
-  --primary-color: #001974;
-  --table-header: #B9B9B9;
-}
 
 body {
   background-color: white;
@@ -120,4 +116,5 @@ tfoot th {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
 }
