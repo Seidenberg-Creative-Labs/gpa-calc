@@ -1,16 +1,16 @@
 import Dropdown from 'react-dropdown';
+import React, { useState } from 'react';
 
 const Drop = () => {
-  const options1 = [
+  const countries = [
     'China', 'India'
   ];
-  const options2 = [
-    'China System', 'India System'
-  ];
+
+  const [country, setCountry] = useState("");
+
     return(
       <div>
-      <Dropdown options={options1}  placeholder="Country" />
-      <Dropdown options={options2}  placeholder="GPA System" />
+      <Dropdown options={countries} onChange={e => setCountry(e.value)} placeholder="Country" />
       </div>
     );
 
