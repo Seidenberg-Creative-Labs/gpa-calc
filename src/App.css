@@ -1,9 +1,5 @@
 @import url("https://fonts.google.com/?query=Barlow");
 
-:root {
-  --primary-color: #001974;
-  --table-header: #B9B9B9;
-}
 
 body {
   background-color: slategray;
@@ -96,3 +92,11 @@ tfoot th {
   width: 82%;
 }
 
+
+.Dropdown-control {
+border-radius: 8px !important;
+}
+
+.Dropdown-menu {
+  border-radius: 8px;
+}
