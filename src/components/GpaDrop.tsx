@@ -1,20 +1,24 @@
 import Dropdown from 'react-dropdown';
 import React, { useState } from 'react';
 
+let title:string = "";
+
 const GpaDrop = ({country}:any) => {
   
+  title = country;
+
   const ChinaScale = [
-    'China1', 'China2', 'China3'
+    "5 Point Scale", "4 Point Scale"
   ];
 
   const IndiaScale = [
-    'India1', 'India2', 'India3'
+    'Most Common Scale', 'Letter Grade Scale', '10 Point Scale'
   ];
 
   if (country === 'China'){
 
     return(
-        <Dropdown options={ChinaScale} placeholder = "Select Scale" />
+        <Dropdown options={ChinaScale} value = {title} />
     );
 
 }
@@ -22,7 +26,7 @@ const GpaDrop = ({country}:any) => {
 else if (country === 'India'){
 
     return(
-        <Dropdown options={IndiaScale} placeholder = "Select Scale" />
+        <Dropdown options={IndiaScale} value = {title} />
     );
 
 }
@@ -32,5 +36,13 @@ else{
         <Dropdown options={[]} placeholder = "Pick a Country" />
     );
 }
+
+
 }
-export default GpaDrop;
+
+const changeTitle = () => {
+  title = "Select Scale"
+}
+
+
+export {GpaDrop, changeTitle, title};
