@@ -1,36 +1,35 @@
 import Dropdown from 'react-dropdown';
-import React, { useState } from 'react';
 
 const GpaDrop = ({country}:any) => {
-  
+
+
   const ChinaScale = [
-    'China1', 'China2', 'China3'
+    "5 Point Scale", "4 Point Scale"
   ];
 
   const IndiaScale = [
-    'India1', 'India2', 'India3'
+    'Most Common Scale', 'Letter Grade Scale', '10 Point Scale'
   ];
 
   if (country === 'China'){
-
     return(
-        <Dropdown options={ChinaScale} placeholder = "Select Scale" />
+        <Dropdown options={ChinaScale} value={"Select China Scale"} />
     );
-
 }
 
 else if (country === 'India'){
-
     return(
-        <Dropdown options={IndiaScale} placeholder = "Select Scale" />
+      <Dropdown options={IndiaScale} value={"Select India Scale"} />
     );
-
 }
 
 else{
     return(
-        <Dropdown options={[]} placeholder = "Pick a Country" />
+        <Dropdown options={[]} placeholder = "Select a Country" />
     );
 }
+
+
 }
+
 export default GpaDrop;
