@@ -108,7 +108,7 @@ tfoot th {
 .Dropdown-control{
   border-radius: 9px !important;
   font-weight: bold;
-  width: 175px;
+  width: max-content;
 }
 
 .Dropdown-menu{
@@ -118,4 +118,5 @@ tfoot th {
 #Dropdown-div{
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
