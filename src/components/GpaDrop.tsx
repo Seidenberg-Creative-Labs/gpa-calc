@@ -1,11 +1,7 @@
 import Dropdown from 'react-dropdown';
-import React, { useState } from 'react';
-
-let title:string = "";
 
 const GpaDrop = ({country}:any) => {
-  
-  title = country;
+
 
   const ChinaScale = [
     "5 Point Scale", "4 Point Scale"
@@ -16,33 +12,24 @@ const GpaDrop = ({country}:any) => {
   ];
 
   if (country === 'China'){
-
     return(
-        <Dropdown options={ChinaScale} value = {title} />
+        <Dropdown options={ChinaScale} value={"Select China Scale"} />
     );
-
 }
 
 else if (country === 'India'){
-
     return(
-        <Dropdown options={IndiaScale} value = {title} />
+      <Dropdown options={IndiaScale} value={"Select India Scale"} />
     );
-
 }
 
 else{
     return(
-        <Dropdown options={[]} placeholder = "Pick a Country" />
+        <Dropdown options={[]} placeholder = "Select a Country" />
     );
 }
 
 
 }
 
-const changeTitle = () => {
-  title = "Select Scale"
-}
-
-
-export {GpaDrop, changeTitle, title};
+export default GpaDrop;
