@@ -1,16 +1,17 @@
 import Dropdown from 'react-dropdown';
+import React, { useState } from 'react';
+import GpaDrop from './GpaDrop';
 
 const Drop = () => {
-  const options1 = [
+  const [country, setCountry] = useState("");
+  const countries = [
     'China', 'India'
   ];
-  const options2 = [
-    'China System', 'India System'
-  ];
+  
     return(
       <div>
-      <Dropdown options={options1}  placeholder="Country" />
-      <Dropdown options={options2}  placeholder="GPA System" />
+      <Dropdown options={countries}  onChange = {e => setCountry(e.value)} placeholder="Country" />
+      <GpaDrop country = {country} />
       </div>
     );
 
