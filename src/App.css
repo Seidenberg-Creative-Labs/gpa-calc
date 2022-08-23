@@ -6,8 +6,9 @@
 }
 
 body {
-  background-color: slategray;
+  background-color: white;
   flex-direction: column;
+  padding-bottom: 6vh;
 }
 
 #root {
@@ -47,23 +48,23 @@ body {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-#paceSCIS{
+#paceSCIS {
   position: relative;
   top: 15%;
-  max-width: 260x;
+  max-width: 260px;
   max-height: 130px;
   height: auto;
   width: auto;
 }
 
-#paceOoA{
+#paceOoA {
   max-width: 230px;
   max-height: 170px;
   height: auto;
   width: auto;
 }
 
-#gpaHeader{
+#gpaHeader {
   font-family: 'Barlow';
   font-size: 69px;
 }
@@ -100,22 +101,22 @@ tfoot th {
   width: 82%;
 }
 
-.Dropdown-root{
+.Dropdown-root {
   font-family: 'Barlow';
   top: -2.4vw;
 }
 
-.Dropdown-control{
+.Dropdown-control {
   border-radius: 9px !important;
   font-weight: bold;
   width: max-content;
 }
 
-.Dropdown-menu{
+.Dropdown-menu {
   border-radius: 9px;
 }
 
-#Dropdown-div{
+#Dropdown-div {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
