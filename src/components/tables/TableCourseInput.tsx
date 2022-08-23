@@ -2,7 +2,7 @@ import React from 'react';
 import {FormControlLabel, TextField} from "@mui/material";
 import MUIDataTable from "mui-datatables";
 
-const TableCourseInput = props => {
+const TableCourseInput = (props: any) => {
     const updateStateFromCell = (value, tableMeta) => {
         const data = props.data;
         data[tableMeta.rowIndex][tableMeta.columnIndex] = value;
@@ -12,7 +12,6 @@ const TableCourseInput = props => {
         {
             name: "Course Title",
             options: {
-                filter: false,
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
                         control={<TextField value={value} />}
@@ -21,6 +20,7 @@ const TableCourseInput = props => {
                         onChange={event => {
                             updateValue(event.target.value);
                             updateStateFromCell(event.target.value, tableMeta);
+                            console.log(JSON.stringify(tableMeta))
                         }}
                     />
                 )
@@ -29,7 +29,6 @@ const TableCourseInput = props => {
         {
             name: "Credits/Hours *",
             options: {
-                filter: false,
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
                         control={<TextField value={value || ''} type='number' />}
@@ -47,7 +46,6 @@ const TableCourseInput = props => {
         {
             name: "Grade *",
             options: {
-                filter: false,
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
                         control={<TextField value={value || ''} type='number' />}
@@ -65,11 +63,15 @@ const TableCourseInput = props => {
     ];
 
     const options = {
-        filterType: 'checkbox',
+        selection: true,
+        filter: false,
+        onRowsDelete: e => {
+            console.log(e.data)
+        },
     };
 
     return (
-        <MUIDataTable title={"Course List"} data={props.data} columns={columns} />
+        <MUIDataTable title={"Course List"} data={props.data} columns={columns} options={options} />
     );
 };
 
