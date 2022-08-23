@@ -20,7 +20,6 @@ const TableCourseInput = (props: any) => {
                         onChange={event => {
                             updateValue(event.target.value);
                             updateStateFromCell(event.target.value, tableMeta);
-                            console.log(JSON.stringify(tableMeta))
                         }}
                     />
                 )

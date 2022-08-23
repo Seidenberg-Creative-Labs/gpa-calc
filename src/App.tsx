@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import './App.css';
 import TableCourseInput from "./components/tables/TableCourseInput";
-import Button from "./components/Button";
 import "react-dropdown/style.css";
 import Drop from "./components/Drop";
 import WebHeader from "./components/WebHeader";
+import {Button, Stack} from "@mui/material";
 
 const App = () => {
   const [dimensions, setDimensions] = useState({
@@ -28,9 +28,9 @@ const App = () => {
 
       window.addEventListener("resize", handleResize);
 
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        }
+      return () => {
+          window.removeEventListener("resize", handleResize);
+      }
   }, []);
 
   return (
@@ -42,21 +42,21 @@ const App = () => {
       {/*@ts-ignore*/}
       <Drop />
         <TableCourseInput data={data} setData={setData} />
-        <div id='btnMenu' style={{marginTop: '4vh', width: window.innerWidth <= 760 ? '100vw' : '50vw'}}>
-            <Button radius={9} color='slategray' text='Add Course' width='150px' height='45px' onClick={() => {
+        <Stack spacing={2} direction="row" id='btnMenu' style={{marginTop: '4vh', width: window.innerWidth <= 760 ? '100vw' : '50vw'}}>
+            <Button variant="contained" onClick={() => {
                 setData([...data, ["", "1", "0"]])
-            }} />
-            <Button radius={9} color='slategray' text='Calculate GPA' width='150px' height='45px' onClick={() => {
+            }}>Add Course</Button>
+            <Button variant="contained" onClick={() => {
                 alert("TODO: Implement this function\n\n" + JSON.stringify(data))
-            }} />
-            <Button radius={9} color='slategray' text='Clear Table' width='150px' height='45px' onClick={() => {
+            }}>Calculate GPA</Button>
+            <Button variant="contained" onClick={() => {
                 setData([
                     ["", "1", "0"],
                     ["", "1", "0"],
                     ["", "1", "0"],
                 ])
-            }} />
-        </div>
+            }}>Reset Table</Button>
+        </Stack>
       </body>
     </div>
   );
