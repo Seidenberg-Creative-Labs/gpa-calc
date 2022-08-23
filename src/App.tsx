@@ -1,14 +1,14 @@
 import React, {useState} from "react";
 import reactLogo from './assets/images/logo.svg';
 import './App.css';
-import TableCourseInput from "./components/tables/TableCourseInput";
 import Button from "./components/Button";
+import TableCourseInput from "./components/tables/TableCourseInput";
 
 const App = () => {
-  const [courseTableData, setCourseTableData] = useState([
-      {id: 1, courseTitle: null, credits: null, grade: null},
-      {id: 2, courseTitle: null, credits: null, grade: null},
-      {id: 3, courseTitle: null, credits: null, grade: null}
+  const [data, setData] = useState([
+    ["", "1", "0"],
+    ["", "1", "0"],
+    ["", "1", "0"],
   ]);
 
   return (
@@ -18,11 +18,22 @@ const App = () => {
         <p>GPA Calculator</p>
       </header>
       <body className="body">
-        <TableCourseInput data={courseTableData} />
+      {/*@ts-ignore*/}
+      <TableCourseInput data={data} setData={setData} />
         <div id='btnMenu'>
-            <Button radius={9} color='#fafafa' text='Add Course' width='150px' height='45px' onClick={() => {}} />
-            <Button radius={9} color='#fafafa' text='Calculate GPA' width='150px' height='45px' onClick={() => {}} />
-            <Button radius={9} color='#fafafa' text='Clear Table' width='150px' height='45px' onClick={() => {}} />
+            <Button radius={9} color='#fafafa' text='Add Course' width='150px' height='45px' onClick={() => {
+                setData([...data, ["", "1", "0"]]);
+            }} />
+            <Button radius={9} color='#fafafa' text='Calculate GPA' width='150px' height='45px' onClick={() => {
+                alert('TODO: Implement this function\n\n' + JSON.stringify(data));
+            }} />
+            <Button radius={9} color='#fafafa' text='Clear Table' width='150px' height='45px' onClick={() => {
+                setData([
+                    ["", "1", "0"],
+                    ["", "1", "0"],
+                    ["", "1", "0"],
+                ])
+            }} />
         </div>
       </body>
     </div>

@@ -6,6 +6,7 @@
 body {
   background-color: slategray;
   flex-direction: column;
+  padding-bottom: 6vh;
 }
 
 #root {

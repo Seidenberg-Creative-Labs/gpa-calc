@@ -10,13 +10,18 @@
     "test": "jest"
   },
   "dependencies": {
-    "@tanstack/react-table": "^8.3.0",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.10.1",
     "@types/react-transition-group": "^4.4.5",
+    "mui-datatables": "^4.2.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-dropdown": "^1.10.0",
     "react-icons": "^4.4.0",
     "react-transition-group": "^4.4.2",
+    "react-widgets": "^5.8.4",
     "reactjs-popup": "^2.0.5"
   },
   "devDependencies": {
