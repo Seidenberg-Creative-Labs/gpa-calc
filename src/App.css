@@ -118,3 +118,7 @@ tfoot th {
   justify-content: space-evenly;
   width: 30vw;
 }
+
+#bar{
+  font-family: "Barlow";
+}

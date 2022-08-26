@@ -43,13 +43,13 @@ const App = () => {
       <Drop />
         <TableCourseInput data={data} setData={setData} />
         <Stack spacing={2} direction="row" id='btnMenu' style={{marginTop: '4vh', width: window.innerWidth <= 760 ? '100vw' : '50vw'}}>
-            <Button variant="contained" onClick={() => {
+            <Button id="bar" variant="contained" onClick={() => {
                 setData([...data, ["", "1", "0"]])
             }}>Add Course</Button>
-            <Button variant="contained" onClick={() => {
+            <Button id = "bar" variant="contained" onClick={() => {
                 alert("TODO: Implement this function\n\n" + JSON.stringify(data))
             }}>Calculate GPA</Button>
-            <Button variant="contained" onClick={() => {
+            <Button id = "bar" variant="contained" onClick={() => {
                 setData([
                     ["", "1", "0"],
                     ["", "1", "0"],

@@ -24,7 +24,7 @@ const Drop = () => {
                         <MenuItem value={"India"}>India</MenuItem>
                     </Select>
                 </FormControl>
-            <GpaDrop country={country}></GpaDrop>
+            <GpaDrop country={country}/>
             </Box>
     );
 };
