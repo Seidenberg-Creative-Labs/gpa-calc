@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import './App.css';
 import TableCourseInput from "./components/tables/TableCourseInput";
 import "react-dropdown/style.css";
-import Drop from "./components/Drop";
+import Drop from "./components/dropdown/Drop";
 import WebHeader from "./components/WebHeader";
 import {Button, Stack} from "@mui/material";
 
