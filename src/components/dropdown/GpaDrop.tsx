@@ -2,11 +2,14 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
 import { useState } from "react";
 
+var placeHolder:string;
+
 const GpaDrop = ({ country }: any) => {
-    const [scale, setScale] = useState("");
+    const [scale, setScale] = useState('');
 
     const handleChange = (e: SelectChangeEvent) => {
         setScale(e.target.value);
+        placeHolder = e.target.value;
     };
 
     if (country === "China") {
@@ -14,6 +17,7 @@ const GpaDrop = ({ country }: any) => {
             <FormControl size="small" sx={{ width: 160 }}>
                 <InputLabel>China Scale</InputLabel>
                 <Select
+                    defaultValue={''}
                     id="dropdown-selector"
                     value={scale}
                     onChange={handleChange}
@@ -30,6 +34,7 @@ const GpaDrop = ({ country }: any) => {
                 <InputLabel>India Scale</InputLabel>
                 <Select
                     id="dropdown-selector"
+                    defaultValue={''}
                     value={scale}
                     onChange={handleChange}
                     label={"India Scale"}
@@ -44,10 +49,10 @@ const GpaDrop = ({ country }: any) => {
         return (
             <FormControl size="small" sx={{ width: 160 }}>
                 <InputLabel>Select a Country</InputLabel>
-                <Select id="dropdown-selector"></Select>
+                <Select id="dropdown-selector" value={""}></Select>
             </FormControl>
         );
     }
 };
 
-export default GpaDrop;
+export {GpaDrop, placeHolder};
