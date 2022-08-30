@@ -3,6 +3,7 @@ import {FormControlLabel, TextField} from "@mui/material";
 import MUIDataTable from "mui-datatables";
 
 const TableCourseInput = (props: any) => {
+    // Update data when cell value changed
     const updateStateFromCell = (value, tableMeta) => {
         const data = props.data;
         data[tableMeta.rowIndex][tableMeta.columnIndex] = value;
