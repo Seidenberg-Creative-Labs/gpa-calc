@@ -1,12 +1,15 @@
-import React, {useEffect, useState} from "react";
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
 import TableCourseInput from "./components/tables/TableCourseInput";
 import "react-dropdown/style.css";
 import Drop from "./components/dropdown/Drop";
 import WebHeader from "./components/WebHeader";
-import {Button, Stack} from "@mui/material";
+import { Button, Stack } from "@mui/material";
+import { placeHolder } from "./components/dropdown/GpaDrop";
+import { calcGpa } from "./utils/Utils";
 
 const App = () => {
+
   // Browser window dimensions
   const [dimensions, setDimensions] = useState({
       height: window.innerHeight,
@@ -30,10 +33,11 @@ const App = () => {
       // Window resize event listener
       window.addEventListener("resize", handleResize);
 
-      return () => {
-          window.removeEventListener("resize", handleResize);
-      }
-  }, []);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
 
   return (
     <div className="App">

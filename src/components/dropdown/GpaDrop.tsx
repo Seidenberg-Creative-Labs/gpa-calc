@@ -1,53 +1,36 @@
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
 import { useState } from "react";
+import { SignalCellularNull } from "@mui/icons-material";
+
+var placeHolder:string;
 
 const GpaDrop = ({ country }: any) => {
-    const [scale, setScale] = useState("");
+    const [scale, setScale] = useState('');
 
     const handleChange = (e: SelectChangeEvent) => {
         setScale(e.target.value);
+        placeHolder = e.target.value;
     };
-
-    if (country === "China") {
-        return (
-            <FormControl size="small" sx={{ width: 160 }}>
-                <InputLabel>China Scale</InputLabel>
+    return(
+    <FormControl size="small" sx={{ width: 160 }}>
+                {country ==='China' ? <InputLabel>Grading Scale</InputLabel> : <InputLabel>Grading Scale</InputLabel>}
+                {country ==='India' ? <InputLabel>Grading Scale</InputLabel> : <InputLabel>Grading Scale</InputLabel>}
                 <Select
+                    defaultValue={'Select a country'}
                     id="dropdown-selector"
                     value={scale}
                     onChange={handleChange}
-                    label={"China Scale"}
+                    label={'Grading Scale'}
                 >
-                    <MenuItem value={"5 Point Scale"}>5 Point Scale</MenuItem>
-                    <MenuItem value={"4 Point Scale"}>4 Point Scale</MenuItem>
+                    {country === 'China' ? <MenuItem value={"5 Point Scale"}>5 Point Scale</MenuItem> : null}
+                    {country === 'China' ? <MenuItem value={"4 Point Scale"}>4 Point Scale</MenuItem> : null}
+                    {country === 'India' ? <MenuItem value={"Most Common Scale"}>Most Common Scale</MenuItem> : null}
+                    {country === 'India' ? <MenuItem value={"4 Point Scale"}>4 Point Scale</MenuItem> : null}
+                    {country === 'India' ? <MenuItem value={"10 Point Scale"}>10 Point Scale</MenuItem> : null}
                 </Select>
             </FormControl>
-        );
-    } else if (country === "India") {
-        return (
-            <FormControl size="small" sx={{ width: 160 }}>
-                <InputLabel>India Scale</InputLabel>
-                <Select
-                    id="dropdown-selector"
-                    value={scale}
-                    onChange={handleChange}
-                    label={"India Scale"}
-                >
-                    <MenuItem value="Most Common Scale">Most Common Scale</MenuItem>
-                    <MenuItem value="4 Point Scale">Letter Grade Scale</MenuItem>
-                    <MenuItem value="10 Point Scale">10 Point Scale</MenuItem>
-                </Select>
-            </FormControl>
-        );
-    } else {
-        return (
-            <FormControl size="small" sx={{ width: 160 }}>
-                <InputLabel>Select a Country</InputLabel>
-                <Select id="dropdown-selector"></Select>
-            </FormControl>
-        );
-    }
+    );
 };
 
-export default GpaDrop;
+export {GpaDrop, placeHolder};

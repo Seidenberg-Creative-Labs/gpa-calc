@@ -16,7 +16,7 @@ body {
 }
 
 .header {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   min-height: 8vh;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -25,7 +25,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
   font-size: calc(10px + 2vmin);
-  color: var(--primary-color);
+  color: #002D72;
   font-weight: bold;
 }
 
