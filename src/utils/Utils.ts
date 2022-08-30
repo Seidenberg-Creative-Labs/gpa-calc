@@ -1,7 +1,7 @@
 
 "5 Point Scale"
 
-function convert_GPA(scale:string, data:string[][]){
+const convertGPA = (scale:string, data:string[][]) => {
 
     var letter_gpa:string[] = [];
     var number_gpa:number[] = [];
@@ -62,7 +62,7 @@ function convert_GPA(scale:string, data:string[][]){
             }
         break;
 
-        case "Latter Grade Scale" || "10 Point Scale":
+        case "Latter Grade Scale":
             for(let i = 0; i < data.length; i++){
                 if(+data[i][2] <= 10 && +data[i][2] >= 9) {
                     number_gpa.push(4.0); 
@@ -115,8 +115,8 @@ function convert_GPA(scale:string, data:string[][]){
 
 
 
-function calc_gpa(scale:string,data:string[][]){
-    var gpa = convert_GPA(scale,data);
+export const calcGpa = (scale:string,data:string[][]) => {
+    var gpa = convertGPA(scale,data);
     
     var qpa_:number[] = [];
     var total_QPA:number = 0;
@@ -129,7 +129,5 @@ function calc_gpa(scale:string,data:string[][]){
     let avg_gpa = Math.round((total_QPA/total_credits) * 100) / 100
     
     console.log(avg_gpa);
-    //return [gpa, avg_gpa];
+    return [gpa, avg_gpa];
 }
-
-export {calc_gpa};

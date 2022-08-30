@@ -6,7 +6,7 @@ import Drop from "./components/dropdown/Drop";
 import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
 import { placeHolder } from "./components/dropdown/GpaDrop";
-import { calc_gpa } from "./utils/Utils";
+import { calcGpa } from "./utils/Utils";
 
 const App = () => {
     const [dimensions, setDimensions] = useState({
@@ -66,7 +66,7 @@ const App = () => {
                         id="bar"
                         variant="contained"
                         onClick={() => {
-                            calc_gpa(placeHolder, data);
+                            alert(calcGpa(placeHolder, data));
                         }}
                     >
                         Calculate GPA
