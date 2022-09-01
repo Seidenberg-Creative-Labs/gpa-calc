@@ -1,6 +1,3 @@
-
-"5 Point Scale"
-
 const convertGPA = (scale:string, data:string[][]) => {
 
     var letter_gpa:string[] = [];
@@ -115,7 +112,7 @@ const convertGPA = (scale:string, data:string[][]) => {
 
 
 
-export const calcGpa = (scale:string,data:string[][]) => {
+const calcGpa = (scale:string,data:string[][]) => {
     var gpa = convertGPA(scale,data);
     
     var qpa_:number[] = [];
@@ -130,4 +127,43 @@ export const calcGpa = (scale:string,data:string[][]) => {
     
     console.log(avg_gpa);
     return [gpa, avg_gpa];
+};
+
+export const getGradeOutput = (scale:string, data:string[][]) => {
+    const courseOutput = data;
+    const gpaResult = calcGpa(scale, data);
+
+    courseOutput.forEach((arr, idx) => {
+        arr.push(getLetterGrade(gpaResult[0][idx]));
+        arr.push(gpaResult[0][idx]);
+    });
+    return courseOutput;
 }
+
+const getLetterGrade = (grade: number) => {
+if (grade >= 4.0) {
+        return "A";
+    } else if (grade >= 3.7) {
+        return "A-";
+    } else if (grade >= 3.3) {
+        return "B+";
+    } else if (grade >= 3.0) {
+        return "B";
+    } else if (grade >= 2.7) {
+        return "B-";
+    } else if (grade >= 2.3) {
+        return "C+";
+    } else if (grade >= 2.0) {
+        return "C";
+    } else if (grade >= 1.7) {
+        return "C-";
+    } else if (grade >= 1.3) {
+        return "D+";
+    } else if (grade >= 1.0) {
+        return "D";
+    } else if (grade >= 0.7) {
+        return "D-";
+    } else {
+        return "F";
+    }
+};
