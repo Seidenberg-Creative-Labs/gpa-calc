@@ -134,7 +134,14 @@ const App = () => {
             </body>
         </div>
     );
-
 };
 
 export default App;
+function setConversionData(arg0: string[][]) {
+    throw new Error("Function not implemented.");
+}
+
+function forceUpdate() {
+    throw new Error("Function not implemented.");
+}
+
