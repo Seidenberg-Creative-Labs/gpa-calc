@@ -72,6 +72,7 @@ const TableCourseInput = (props: any) => {
         onRowsDelete: e => {
             console.log(e.data)
         },
+        pagination: false,
     };
 
     return (
