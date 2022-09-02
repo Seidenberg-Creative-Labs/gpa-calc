@@ -30,7 +30,7 @@ body {
 }
 
 .body {
-  padding-top: 18vh;
+  padding-top: 7vh;
   font-family: 'Barlow' !important;
 }
 
@@ -114,9 +114,25 @@ tfoot th {
 
 #gpa-dropdown{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-  width: 30vw;
+  height: 15vw;
+  align-items: flex-start;
+  
+}
+
+.websiteBody{
+  display: flex;
+  flex-direction: column;
+}
+
+.alignLabel{
+  color: black;
+  font-family: 'Barlow';
+  font-size: 22px;
+  font-weight: bold;
+  align-items: center;
+  display: flex;
 }
 
 #bar{

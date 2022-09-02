@@ -1,7 +1,7 @@
 const convertGPA = (scale:string, data:string[][]) => {
 
     var letter_gpa:string[] = [];
-    var number_gpa:number[] = [];
+    var number_gpa:GLfloat[] = [];
 
     switch (scale){
 
@@ -125,7 +125,6 @@ const calcGpa = (scale:string,data:string[][]) => {
 
     let avg_gpa = Math.round((total_QPA/total_credits) * 100) / 100
     
-    console.log(avg_gpa);
     return [gpa, avg_gpa];
 };
 
