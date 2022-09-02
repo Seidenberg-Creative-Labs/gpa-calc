@@ -2,8 +2,10 @@
 
 
 body {
-  background-color: slategray;
+  background-color: white;
   flex-direction: column;
+  padding-bottom: 6vh;
+  font-family: 'Barlow' !important;
 }
 
 #root {
@@ -14,7 +16,7 @@ body {
 }
 
 .header {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   min-height: 8vh;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -23,12 +25,13 @@ body {
   align-items: center;
   justify-content: space-evenly;
   font-size: calc(10px + 2vmin);
-  color: var(--primary-color);
+  color: #002D72;
   font-weight: bold;
 }
 
 .body {
-  padding-top: 18vh;
+  padding-top: 7vh;
+  font-family: 'Barlow' !important;
 }
 
 .logo {
@@ -36,30 +39,32 @@ body {
   padding: 1.5em;
   will-change: filter;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-#paceSCIS{
+#paceSCIS {
   position: relative;
   top: 15%;
-  max-width: 260x;
+  max-width: 260px;
   max-height: 130px;
   height: auto;
   width: auto;
 }
 
-#paceOoA{
+#paceOoA {
   max-width: 230px;
   max-height: 170px;
   height: auto;
   width: auto;
 }
 
-#gpaHeader{
+#gpaHeader {
   font-family: 'Barlow';
   font-size: 69px;
 }
@@ -67,7 +72,7 @@ body {
 table {
   border: 1px solid lightgray;
   border-radius: 15px;
-
+  font-family: 'Barlow';
   margin-bottom: 4vh;
 }
 
@@ -75,22 +80,27 @@ th {
   /*border-bottom: 1px solid lightgray;*/
   /*border-right: 1px solid lightgray;*/
   padding: 2px 4px;
+  font-family: 'Barlow';
 }
 
 tfoot {
+  font-family: 'Barlow';
   color: gray;
 }
 
 tfoot th {
   font-weight: normal;
+  font-family: 'Barlow';
 }
 
 #btnMenu {
+  font-family: 'Barlow';
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 82%;
 }
+
 
 .Dropdown-control {
 border-radius: 8px !important;
@@ -98,5 +108,44 @@ border-radius: 8px !important;
 
 .Dropdown-menu {
   border-radius: 8px;
+}
+
+
+#dropdown-selector{
+  font-family: 'Barlow';
+  font-size: large;
+  text-align: left;
+}
+
+#dropdown-label{
+  font-family: "Barlow";
+  font-size: large;
+}
+
+#gpa-dropdown{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 15vw;
+  align-items: flex-start;
+  
+}
+
+.websiteBody{
+  display: flex;
+  flex-direction: column;
+}
+
+.alignLabel{
+  color: black;
+  font-family: 'Barlow';
+  font-size: 22px;
+  font-weight: bold;
+  align-items: center;
+  display: flex;
+}
+
+#bar{
+  font-family: "Barlow";
 }
 
