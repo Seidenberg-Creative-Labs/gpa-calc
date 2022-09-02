@@ -40,4 +40,3 @@ const TableGradesOutput = (props: any) => {
 };
 
 export default TableGradesOutput;
-
