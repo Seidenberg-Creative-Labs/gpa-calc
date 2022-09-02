@@ -14,6 +14,7 @@ const TableCourseInput = (props: any) => {
             options: {
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
+                        id='bar'
                         control={<TextField value={value} />}
                         label=""
                         value={value}
@@ -21,7 +22,7 @@ const TableCourseInput = (props: any) => {
                             updateValue(event.target.value);
                             updateStateFromCell(event.target.value, tableMeta);
                         }}
-                    />
+                        />
                 )
             }
         },
@@ -38,6 +39,7 @@ const TableCourseInput = (props: any) => {
                                 updateStateFromCell(event.target.value, tableMeta);
                             }
                         }}
+                        sx={{fontFamily:"Barlow"}}
                     />
                 )
             }
@@ -55,6 +57,7 @@ const TableCourseInput = (props: any) => {
                                 updateStateFromCell(event.target.value, tableMeta);
                             }
                         }}
+                        sx={{fontFamily:"Barlow"}}
                     />
                 )
             }

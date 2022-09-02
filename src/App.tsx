@@ -41,7 +41,7 @@ const App = () => {
       <body className="body">
       {/*@ts-ignore*/}
       <Drop />
-        <TableCourseInput data={data} setData={setData} />
+        <TableCourseInput id = "bar" data={data} setData={setData} />
         <Stack spacing={2} direction="row" id='btnMenu' style={{marginTop: '4vh', width: window.innerWidth <= 760 ? '100vw' : '50vw'}}>
             <Button id="bar" variant="contained" onClick={() => {
                 setData([...data, ["", "1", "0"]])

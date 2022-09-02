@@ -19,8 +19,8 @@ const GpaDrop = ({ country }: any) => {
                     onChange={handleChange}
                     label={"China Scale"}
                 >
-                    <MenuItem value={"5 Point Scale"}>5 Point Scale</MenuItem>
-                    <MenuItem value={"4 Point Scale"}>4 Point Scale</MenuItem>
+                    <MenuItem value="china-5-point">5 Point Scale</MenuItem>
+                    <MenuItem value="china-4-point">4 Point Scale</MenuItem>
                 </Select>
             </FormControl>
         );
@@ -34,9 +34,9 @@ const GpaDrop = ({ country }: any) => {
                     onChange={handleChange}
                     label={"India Scale"}
                 >
-                    <MenuItem value="Most Common Scale">Most Common Scale</MenuItem>
-                    <MenuItem value="4 Point Scale">Letter Grade Scale</MenuItem>
-                    <MenuItem value="10 Point Scale">10 Point Scale</MenuItem>
+                    <MenuItem value="india-common-scale">Most Common Scale</MenuItem>
+                    <MenuItem value="india-4-point">Letter Grade Scale</MenuItem>
+                    <MenuItem value="india-10-point">10 Point Scale</MenuItem>
                 </Select>
             </FormControl>
         );

@@ -6,6 +6,7 @@ body {
   flex-direction: column;
   padding-bottom: 6vh;
   font-family: 'Barlow' !important;
+  
 }
 
 #root {
@@ -30,8 +31,13 @@ body {
 }
 
 .body {
-  padding-top: 18vh;
+  padding-top: 7vh;
   font-family: 'Barlow' !important;
+  display: flex;
+  height: 800px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .logo {
@@ -121,4 +127,12 @@ tfoot th {
 
 #bar{
   font-family: "Barlow";
+}
+
+.css-1w1rijm-MuiButtonBase-root-MuiButton-root{
+  font-family: 'Barlow' !important;
+}
+
+.css-2ulfj5-MuiTypography-root{
+  font-family: 'Barlow' !important;
 }
