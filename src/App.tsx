@@ -6,7 +6,8 @@ import Drop from "./components/dropdown/Drop";
 import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
 import { placeHolder } from "./components/dropdown/GpaDrop";
-import { calcGpa } from "./utils/Utils";
+import {getGradeOutput} from "./utils/Utils";
+import TableGradesOutput from "./components/tables/TableGradesOutput";
 
 const App = () => {
 
@@ -21,6 +22,8 @@ const App = () => {
       ["", 1, 0],
       ["", 1, 0],
   ]);
+
+  const [showOutput, setShowOutput] = useState(false);
 
   useEffect(() => {
       // Update window dimensions
@@ -54,9 +57,10 @@ const App = () => {
                 setData([...data, ["", "1", "0"]]);
             }}>Add Course</Button>
             <Button variant="contained" onClick={() => {
-                alert("TODO: Implement this function\n\n" + JSON.stringify(data));
+                setShowOutput(true);
             }}>Calculate GPA</Button>
             <Button variant="contained" onClick={() => {
+                setShowOutput(false);
                 setData([
                     ["", "1", "0"],
                     ["", "1", "0"],
@@ -66,6 +70,7 @@ const App = () => {
                 setTimeout(() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'}), 10);
             }}>Reset Table</Button>
         </Stack>
+      {showOutput && <TableGradesOutput data={getGradeOutput('5 Point Scale', data)} />}
       </body>
     </div>
   );
