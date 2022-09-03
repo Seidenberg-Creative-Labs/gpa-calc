@@ -18,6 +18,7 @@ const TableGradesOutput = (props: any) => {
         "prepend": false,
     });
 
+    // Custom styling for MUI table
     const getMuiTheme = () => createTheme({
         components: {
             MUIDataTableBodyCell: {
