@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useReducer, useState} from "react";
 import "./App.css";
 import TableCourseInput from "./components/tables/TableCourseInput";
 import "react-dropdown/style.css";
@@ -8,6 +8,7 @@ import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
 import { getGradeOutput } from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
+import {placeHolder} from "./components/dropdown/GpaDrop";
 
 const App = () => {
     // Browser window dimensions
@@ -22,18 +23,21 @@ const App = () => {
         ["", 1, 0],
     ]);
 
-    const [showOutput, setShowOutput] = useState(false);
+  // Bool to determine if conversion output table is shown
+  const [showOutput, setShowOutput] = useState(false);
 
-    useEffect(() => {
-        // Update window dimensions
-        const handleResize = () => {
-            setDimensions({
-                height: window.innerHeight,
-                width: window.innerWidth,
-            });
-        };
-        // Window resize event listener
-        window.addEventListener("resize", handleResize);
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
+
+  useEffect(() => {
+      // Update window dimensions
+      const handleResize = () => {
+          setDimensions({
+              height: window.innerHeight,
+              width: window.innerWidth,
+          });
+      }
+      // Window resize event listener
+      window.addEventListener("resize", handleResize);
 
         return () => {
             window.removeEventListener("resize", handleResize);
@@ -81,7 +85,14 @@ const App = () => {
                             <Button
                                 variant="contained"
                                 onClick={() => {
-                                    temp(showOutput);
+                                    if (placeHolder) {
+                                        if (showOutput) {
+                                            forceUpdate()
+                                        }
+                                        setShowOutput(true);
+                                    } else {
+                                        alert("Please select a GPA scale");
+                                    }
                                 }}
                             >
                                 Calculate GPA
@@ -118,6 +129,5 @@ const App = () => {
             </body>
         </div>
     );
-};
 
 export default App;
