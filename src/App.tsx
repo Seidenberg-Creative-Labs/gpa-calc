@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useReducer, useState} from "react";
 import "./App.css";
 import TableCourseInput from "./components/tables/TableCourseInput";
 import "react-dropdown/style.css";
@@ -7,6 +7,7 @@ import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
 import {getGradeOutput} from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
+import {placeHolder} from "./components/dropdown/GpaDrop";
 
 const App = () => {
 
@@ -24,6 +25,8 @@ const App = () => {
 
   // Bool to determine if conversion output table is shown
   const [showOutput, setShowOutput] = useState(false);
+
+  const [, forceUpdate] = useReducer(x => x + 1, 0);
 
   useEffect(() => {
       // Update window dimensions
@@ -57,7 +60,14 @@ const App = () => {
                 setData([...data, ["", "1", "0"]]);
             }}>Add Course</Button>
             <Button variant="contained" onClick={() => {
-                setShowOutput(true);
+                if (placeHolder) {
+                    if (showOutput) {
+                        forceUpdate()
+                    }
+                    setShowOutput(true);
+                } else {
+                    alert("Please select a GPA scale");
+                }
             }}>Calculate GPA</Button>
             <Button variant="contained" onClick={() => {
                 setShowOutput(false);
@@ -70,7 +80,7 @@ const App = () => {
                 setTimeout(() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'}), 10);
             }}>Reset Table</Button>
         </Stack>
-      {showOutput && <TableGradesOutput data={getGradeOutput('5 Point Scale', data)} />}
+      {showOutput && <TableGradesOutput data={getGradeOutput(placeHolder, data)} />}
       </body>
     </div>
   );
