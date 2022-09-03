@@ -59,7 +59,7 @@ const convertGPA = (scale:string, data:string[][]) => {
             }
         break;
 
-        case "Latter Grade Scale":
+        case "Letter Grade Scale":
             for(let i = 0; i < data.length; i++){
                 if(+data[i][2] <= 10 && +data[i][2] >= 9) {
                     number_gpa.push(4.0); 
@@ -166,4 +166,15 @@ if (grade >= 4.0) {
     } else {
         return "F";
     }
+};
+
+// Delete row(s) & corresponding data from TableCourseInput
+export const deleteRowData = (arr, data) => {
+    const newData = data;
+
+    arr.forEach((row) => {
+        newData.splice(row.index, 1);
+    });
+
+    return newData;
 };

@@ -5,7 +5,6 @@ import "react-dropdown/style.css";
 import Drop from "./components/dropdown/Drop";
 import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
-import { placeHolder } from "./components/dropdown/GpaDrop";
 import {getGradeOutput} from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
 
@@ -23,6 +22,7 @@ const App = () => {
       ["", 1, 0],
   ]);
 
+  // Bool to determine if conversion output table is shown
   const [showOutput, setShowOutput] = useState(false);
 
   useEffect(() => {

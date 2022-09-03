@@ -1,6 +1,7 @@
 import React from 'react';
 import {FormControlLabel, TextField} from "@mui/material";
 import MUIDataTable from "mui-datatables";
+import {deleteRowData} from "../../utils/Utils";
 
 const TableCourseInput = (props: any) => {
     // Update data when cell value changed
@@ -66,7 +67,7 @@ const TableCourseInput = (props: any) => {
         selection: true,
         filter: false,
         onRowsDelete: e => {
-            console.log(e.data)
+            props.setData(deleteRowData(e.data, props.data));
         },
         pagination: false,
     };
