@@ -13,10 +13,9 @@ const GpaDrop = ({ country }: any) => {
     };
     return(
     <FormControl size="small" sx={{ width: 160 }}>
-                {country ==='China' ? <InputLabel>Grading Scale</InputLabel> : <InputLabel>Grading Scale</InputLabel>}
-                {country ==='India' ? <InputLabel>Grading Scale</InputLabel> : <InputLabel>Grading Scale</InputLabel>}
+                <InputLabel>Grading Scale</InputLabel>
                 <Select
-                    defaultValue={'Select a country'}
+                    defaultValue={''}
                     id="dropdown-selector"
                     value={scale}
                     onChange={handleChange}
@@ -24,6 +23,7 @@ const GpaDrop = ({ country }: any) => {
                 >
                     {country === 'China' ? <MenuItem value={"5 Point Scale"}>5 Point Scale</MenuItem> : null}
                     {country === 'China' ? <MenuItem value={"4 Point Scale"}>4 Point Scale</MenuItem> : null}
+
                     {country === 'India' ? <MenuItem value={"Most Common Scale"}>Most Common Scale</MenuItem> : null}
                     {country === 'India' ? <MenuItem value={"4 Point Scale"}>4 Point Scale</MenuItem> : null}
                     {country === 'India' ? <MenuItem value={"10 Point Scale"}>10 Point Scale</MenuItem> : null}
