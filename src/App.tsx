@@ -5,9 +5,11 @@ import "react-dropdown/style.css";
 import Drop from "./components/dropdown/Drop";
 import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
-import {getGradeOutput} from "./utils/Utils";
+import {displayToast, getGradeOutput} from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
 import {placeHolder} from "./components/dropdown/GpaDrop";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const App = () => {
 
@@ -66,7 +68,7 @@ const App = () => {
                     }
                     setShowOutput(true);
                 } else {
-                    alert("Please select a GPA scale");
+                    displayToast("Please select a GPA scale");
                 }
             }}>Calculate GPA</Button>
             <Button variant="contained" onClick={() => {
@@ -81,6 +83,7 @@ const App = () => {
             }}>Reset Table</Button>
         </Stack>
       {showOutput && <TableGradesOutput data={getGradeOutput(placeHolder, data)} />}
+      <ToastContainer position="bottom-center" />
       </body>
     </div>
   );
