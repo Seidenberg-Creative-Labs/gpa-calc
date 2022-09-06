@@ -6,9 +6,10 @@ import Drop from "./components/dropdown/Drop";
 import { getScale } from "./components/dropdown/GpaDrop";
 import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
-import { getGradeOutput } from "./utils/Utils";
+import {displayToast, getGradeOutput} from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
-import {placeHolder} from "./components/dropdown/GpaDrop";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const App = () => {
     // Browser window dimensions
@@ -43,14 +44,6 @@ const App = () => {
             window.removeEventListener("resize", handleResize);
         };
     }, []);
-
-    const temp = (showOutput) => {
-        if (showOutput) {
-            setShowOutput(false);
-        } else {
-            setShowOutput(true);
-        }
-    };
 
     return (
         <div className="App">
@@ -91,7 +84,7 @@ const App = () => {
                                         }
                                         setShowOutput(true);
                                     } else {
-                                        alert("Please select a GPA scale");
+                                        displayToast("Please select a GPA scale");
                                     }
                                 }}
                             >
@@ -107,15 +100,7 @@ const App = () => {
                                         ["", "1", "0"],
                                     ]);
                                     // Timeout to allow state to update
-                                    setTimeout(
-                                        () =>
-                                            window.scrollTo({
-                                                top: 0,
-                                                left: 0,
-                                                behavior: "smooth",
-                                            }),
-                                        10
-                                    );
+                                    setTimeout(() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'}), 10);
                                 }}
                             >
                                 Reset Table
@@ -129,5 +114,6 @@ const App = () => {
             </body>
         </div>
     );
+};
 
 export default App;

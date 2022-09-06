@@ -1,8 +1,5 @@
+import {toast} from "react-toastify";
 
-
-
-
-export {}
 const convertGPA = (scale:string, data:string[][]) => {
 
     var letter_gpa:string[] = [];
@@ -183,4 +180,10 @@ export const deleteRowData = (arr, data) => {
     });
 
     return newData;
+};
+
+export const displayToast = text => {
+    toast.error(text, {
+        position: toast.POSITION.BOTTOM_CENTER
+    })
 };
