@@ -10,6 +10,7 @@ import TableGradesOutput from "./components/tables/TableGradesOutput";
 import {placeHolder} from "./components/dropdown/GpaDrop";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.min.css';
+import {CSSTransition} from "react-transition-group";
 
 const App = () => {
 
@@ -82,7 +83,13 @@ const App = () => {
                 setTimeout(() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'}), 10);
             }}>Reset Table</Button>
         </Stack>
-      {showOutput && <TableGradesOutput data={getGradeOutput(placeHolder, data)} />}
+      <CSSTransition
+          in={showOutput}
+          timeout={300}
+          classNames="fade"
+          unmountOnExit>
+        <TableGradesOutput data={getGradeOutput(placeHolder, data)} />
+      </CSSTransition>
       <ToastContainer position="bottom-center" />
       </body>
     </div>
