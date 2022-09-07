@@ -29,6 +29,8 @@ const App = () => {
   // Bool to determine if conversion output table is shown
   const [showOutput, setShowOutput] = useState(false);
 
+  const [conversionData, setConversionData] = useState([]);
+
   const [, forceUpdate] = useReducer(x => x + 1, 0);
 
   useEffect(() => {
@@ -64,6 +66,7 @@ const App = () => {
             }}>Add Course</Button>
             <Button variant="contained" onClick={() => {
                 if (placeHolder) {
+                    setConversionData(getGradeOutput(placeHolder, data))
                     if (showOutput) {
                         forceUpdate()
                     }
@@ -88,7 +91,7 @@ const App = () => {
           timeout={300}
           classNames="fade"
           unmountOnExit>
-        <TableGradesOutput data={getGradeOutput(placeHolder, data)} />
+        <TableGradesOutput data={conversionData} />
       </CSSTransition>
       <ToastContainer position="bottom-center" />
       </body>
