@@ -30,16 +30,19 @@ const App = () => {
 
     const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
-    useEffect(() => {
-        // Update window dimensions
-        const handleResize = () => {
-            setDimensions({
-                height: window.innerHeight,
-                width: window.innerWidth,
-            });
-        };
-        // Window resize event listener
-        window.addEventListener("resize", handleResize);
+  const [conversionData, setConversionData] = useState([]);
+
+
+  useEffect(() => {
+      // Update window dimensions
+      const handleResize = () => {
+          setDimensions({
+              height: window.innerHeight,
+              width: window.innerWidth,
+          });
+      }
+      // Window resize event listener
+      window.addEventListener("resize", handleResize);
 
         return () => {
             window.removeEventListener("resize", handleResize);
@@ -125,12 +128,13 @@ const App = () => {
                     classNames="fade"
                     unmountOnExit
                 >
-                    <TableGradesOutput data={getGradeOutput(getScale, data)} />
+                    <TableGradesOutput data={conversionData} />
                 </CSSTransition>
                 <ToastContainer position="bottom-center" />
             </body>
         </div>
     );
+
 };
 
 export default App;
