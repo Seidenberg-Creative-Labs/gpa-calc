@@ -132,7 +132,9 @@ const calcGpa = (scale:string,data:string[][]) => {
 };
 
 export const getGradeOutput = (scale:string, data:string[][]) => {
-    const courseOutput = [...data];
+    const courseOutput = data.map(arr => {
+        return arr.slice();
+    })
     const gpaResult = calcGpa(scale, data);
 
     courseOutput.forEach((arr, idx) => {
