@@ -80,7 +80,7 @@ const App = () => {
                     ["", "1", "0"],
                 ]);
                 // Timeout to allow state to update
-                // setTimeout(() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'}), 10);
+                setTimeout(() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'}), 10);
             }}>Reset Table</Button>
         </Stack>
       <CSSTransition
