@@ -7,6 +7,7 @@ import { getScale } from "./components/dropdown/GpaDrop";
 import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
 import { displayToast, getGradeOutput } from "./utils/Utils";
+import { getGradeOutput } from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
