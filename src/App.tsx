@@ -3,9 +3,9 @@ import "./App.css";
 import TableCourseInput from "./components/tables/TableCourseInput";
 import "react-dropdown/style.css";
 import Drop from "./components/dropdown/Drop";
+import { getScale } from "./components/dropdown/GpaDrop";
 import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
-import { placeHolder } from "./components/dropdown/GpaDrop";
 import { getGradeOutput } from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
 
@@ -40,6 +40,14 @@ const App = () => {
         };
     }, []);
 
+    const temp = (showOutput) => {
+        if (showOutput) {
+            setShowOutput(false);
+        } else {
+            setShowOutput(true);
+        }
+    };
+
     return (
         <div className="App">
             <header className="header">
@@ -47,64 +55,65 @@ const App = () => {
             </header>
             <body className="body">
                 {/*@ts-ignore*/}
-                <div className="websiteBody">
+                <div className="test">
                     <Drop />
-                    <TableCourseInput data={data} setData={setData} />
+                    <div className="table-button">
+                        <TableCourseInput data={data} setData={setData} />
+                        <Stack
+                            spacing={2}
+                            direction="row"
+                            id="btnMenu"
+                            style={{
+                                marginTop: "4vh",
+                                width:
+                                    window.innerWidth <= 760 ? "100vw" : "50vw",
+                            }}
+                        >
+                            <Button
+                                variant="contained"
+                                onClick={() => {
+                                    // Add new empty row to data
+                                    setData([...data, ["", "1", "0"]]);
+                                }}
+                            >
+                                Add Course
+                            </Button>
+                            <Button
+                                variant="contained"
+                                onClick={() => {
+                                    temp(showOutput);
+                                }}
+                            >
+                                Calculate GPA
+                            </Button>
+                            <Button
+                                variant="contained"
+                                onClick={() => {
+                                    setShowOutput(false);
+                                    setData([
+                                        ["", "1", "0"],
+                                        ["", "1", "0"],
+                                        ["", "1", "0"],
+                                    ]);
+                                    // Timeout to allow state to update
+                                    setTimeout(
+                                        () =>
+                                            window.scrollTo({
+                                                top: 0,
+                                                left: 0,
+                                                behavior: "smooth",
+                                            }),
+                                        10
+                                    );
+                                }}
+                            >
+                                Reset Table
+                            </Button>
+                        </Stack>
+                    </div>
                 </div>
-                <Stack
-                    spacing={2}
-                    direction="row"
-                    id="btnMenu"
-                    style={{
-                        marginTop: "4vh",
-                        width: window.innerWidth <= 760 ? "100vw" : "50vw",
-                    }}
-                >
-                    <Button
-                        variant="contained"
-                        onClick={() => {
-                            // Add new empty row to data
-                            setData([...data, ["", "1", "0"]]);
-                        }}
-                    >
-                        Add Course
-                    </Button>
-                    <Button
-                        variant="contained"
-                        onClick={() => {
-                            setShowOutput(true);
-                        }}
-                    >
-                        Calculate GPA
-                    </Button>
-                    <Button
-                        variant="contained"
-                        onClick={() => {
-                            setShowOutput(false);
-                            setData([
-                                ["", "1", "0"],
-                                ["", "1", "0"],
-                                ["", "1", "0"],
-                            ]);
-                            // Timeout to allow state to update
-                            setTimeout(
-                                () =>
-                                    window.scrollTo({
-                                        top: 0,
-                                        left: 0,
-                                        behavior: "smooth",
-                                    }),
-                                10
-                            );
-                        }}
-                    >
-                        Reset Table
-                    </Button>
-                </Stack>
                 {showOutput && (
-                    <TableGradesOutput
-                        data={getGradeOutput("5 Point Scale", data)}
-                    />
+                    <TableGradesOutput id="output" data={getGradeOutput(getScale, data)} />
                 )}
             </body>
         </div>

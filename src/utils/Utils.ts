@@ -141,6 +141,8 @@ export const getGradeOutput = (scale:string, data:string[][]) => {
         arr.push(getLetterGrade(gpaResult[0][idx]));
         arr.push(gpaResult[0][idx]);
     });
+
+    console.log(courseOutput);
     return courseOutput;
 }
 
