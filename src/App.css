@@ -163,10 +163,3 @@ tfoot th {
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
-
-.table-button{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-

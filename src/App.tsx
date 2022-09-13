@@ -32,7 +32,6 @@ const App = () => {
 
   const [conversionData, setConversionData] = useState([]);
 
-
   useEffect(() => {
       // Update window dimensions
       const handleResize = () => {
