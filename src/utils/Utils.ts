@@ -3,7 +3,7 @@ import {toast} from "react-toastify";
 const convertGPA = (scale:string, data:string[][]) => {
 
     var letter_gpa:string[] = [];
-    var number_gpa:number[] = [];
+    var number_gpa:GLfloat[] = [];
 
     switch (scale){
 
@@ -127,7 +127,6 @@ export const calcGpa = (scale:string,data:string[][]) => {
 
     let avg_gpa = Math.round((total_QPA/total_credits) * 100) / 100
     
-    console.log(avg_gpa);
     return [gpa, avg_gpa];
 };
 
@@ -141,6 +140,8 @@ export const getGradeOutput = (scale:string, data:string[][]) => {
         arr.push(getLetterGrade(gpaResult[0][idx]));
         arr.push(gpaResult[0][idx]);
     });
+
+    console.log(courseOutput);
     return courseOutput;
 }
 

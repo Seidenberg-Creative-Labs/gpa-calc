@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import MUIDataTable from "mui-datatables";
 import createCache from "@emotion/cache";
 import {CacheProvider} from "@emotion/react";
-import {createTheme, ThemeProvider} from "@mui/material";
+import {Box, createTheme, ThemeProvider} from "@mui/material";
 
 const TableGradesOutput = (props: any) => {
-    const columns = ["Course", "Credits/Hours", "Grade", "US Grade", "Grade Point"];
+    const columns = ["Course", "Credits / Hours", "Grade", "US Grade", "Grade Point"];
 
     const options = {
         selection: false,
@@ -15,7 +15,7 @@ const TableGradesOutput = (props: any) => {
 
     const muiCache = createCache({
         "key": "mui",
-        "prepend": true,
+        "prepend": false,
     });
 
     // Custom styling for MUI table
@@ -24,18 +24,22 @@ const TableGradesOutput = (props: any) => {
             MUIDataTableBodyCell: {
                 styleOverrides: {
                     root: {
-                        textAlign: "center"
+                        textAlign:'center',
                     }
                 }
-            }
-        }
-    });
+            },
+        },
+        spacing:1
+
+        });
 
     return (
         <CacheProvider value={muiCache}>
-            <ThemeProvider theme={getMuiTheme()}>
-                <MUIDataTable title={"Calculated Grades"} data={props.data} columns={columns} options={options} />
-            </ThemeProvider>
+            <Box sx={{}}>
+                <ThemeProvider theme={getMuiTheme()}>
+                    <MUIDataTable title={"Calculated Grades"} data={props.data} columns={columns} options={options} />
+                </ThemeProvider>
+            </Box>
         </CacheProvider>
     );
 };

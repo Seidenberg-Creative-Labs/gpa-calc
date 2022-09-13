@@ -1,6 +1,7 @@
 import React from 'react';
 import {FormControlLabel, TextField} from "@mui/material";
 import MUIDataTable from "mui-datatables";
+import { alignProperty } from '@mui/material/styles/cssUtils';
 import {deleteRowData} from "../../utils/Utils";
 
 const TableCourseInput = (props: any) => {
@@ -16,6 +17,7 @@ const TableCourseInput = (props: any) => {
             options: {
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
+                        sx={{ width: 160 }}
                         control={<TextField value={value} />}
                         label=""
                         value={value}
@@ -28,10 +30,11 @@ const TableCourseInput = (props: any) => {
             }
         },
         {
-            name: "Credits/Hours *",
+            name: "Credits / Hours*",
             options: {
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
+                        sx={{ width: 70 }}
                         control={<TextField value={value || ''} type='number' />}
                         label=""
                         onChange={event => {
@@ -45,10 +48,11 @@ const TableCourseInput = (props: any) => {
             }
         },
         {
-            name: "Grade *",
+            name: "Grade*",
             options: {
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
+                        sx={{ width: 100 }} 
                         control={<TextField value={value || ''} type='number' />}
                         label=""
                         onChange={event => {

@@ -3,16 +3,15 @@
 
 body {
   background-color: white;
-  flex-direction: column;
   padding-bottom: 6vh;
   font-family: 'Barlow' !important;
+  text-align: center;
 }
 
 #root {
   max-width: 1280px;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
 .header {
@@ -30,8 +29,12 @@ body {
 }
 
 .body {
-  padding-top: 18vh;
+  padding-top: 7vh;
+  padding-left: 7vh;
   font-family: 'Barlow' !important;
+  display: flex;
+  flex-direction: row;
+
 }
 
 .logo {
@@ -94,36 +97,55 @@ tfoot th {
 }
 
 #btnMenu {
+  max-width: 39.2vw;
   font-family: 'Barlow';
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 82%;
 }
 
-#dropdown-selector{
+#dropdown-selector {
   font-family: 'Barlow';
   font-size: large;
   text-align: left;
 }
 
-#dropdown-label{
+#dropdown-label {
   font-family: "Barlow";
   font-size: large;
 }
 
-#gpa-dropdown{
+#gpa-dropdown {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
-  width: 30vw;
+  height: 15vw;
+  align-items: flex-start;
 }
 
-#bar{
+.alignLabel {
+  color: black;
+  font-family: 'Barlow';
+  font-size: 22px;
+  font-weight: bold;
+  align-items: center;
+  display: flex;
+}
+
+#bar {
   font-family: "Barlow";
 }
 
-/* CSSTransition animations */
+.table-button{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* output table */
+.mui-1ygcj2i-MuiTableCell-root{
+  padding: 0 !important;
+}
 .fade-enter {
   opacity: 0;
   transform: scale(0.9);
