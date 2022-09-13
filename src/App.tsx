@@ -7,7 +7,6 @@ import { getScale } from "./components/dropdown/GpaDrop";
 import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
 import { displayToast, getGradeOutput } from "./utils/Utils";
-import { getGradeOutput } from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
@@ -83,15 +82,15 @@ const App = () => {
                             <Button
                                 variant="contained"
                                 onClick={() => {
+
                                     if (getScale) {
+                                        setConversionData(getGradeOutput(getScale, data))
                                         if (showOutput) {
-                                            forceUpdate();
+                                            forceUpdate()
                                         }
                                         setShowOutput(true);
                                     } else {
-                                        displayToast(
-                                            "Please select a GPA scale"
-                                        );
+                                        displayToast("Please select a GPA scale");
                                     }
                                 }}
                             >
