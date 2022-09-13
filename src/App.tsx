@@ -5,7 +5,7 @@ import "react-dropdown/style.css";
 import Drop from "./components/dropdown/Drop";
 import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
-import {displayToast, getGradeOutput} from "./utils/Utils";
+import {calcGpa, displayToast, getGradeOutput} from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
 import {placeHolder} from "./components/dropdown/GpaDrop";
 import {ToastContainer} from "react-toastify";
@@ -91,7 +91,10 @@ const App = () => {
           timeout={300}
           classNames="fade"
           unmountOnExit>
-        <TableGradesOutput data={conversionData} />
+        <>
+          <TableGradesOutput data={conversionData} />
+          <h2>Cumulative GPA: {calcGpa(placeHolder, data)[1]}</h2>
+        </>
       </CSSTransition>
       <ToastContainer position="bottom-center" />
       </body>
