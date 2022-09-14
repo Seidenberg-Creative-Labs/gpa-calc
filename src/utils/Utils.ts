@@ -114,7 +114,7 @@ const convertGPA = (scale:string, data:string[][]) => {
 
 
 
-const calcGpa = (scale:string,data:string[][]) => {
+export const calcGpa = (scale:string,data:string[][]) => {
     var gpa = convertGPA(scale,data);
     
     var qpa_:number[] = [];
@@ -133,7 +133,7 @@ const calcGpa = (scale:string,data:string[][]) => {
 export const getGradeOutput = (scale:string, data:string[][]) => {
     const courseOutput = data.map(arr => {
         return arr.slice();
-    })
+    });
     const gpaResult = calcGpa(scale, data);
 
     courseOutput.forEach((arr, idx) => {
@@ -186,6 +186,6 @@ export const deleteRowData = (arr, data) => {
 
 export const displayToast = text => {
     toast.error(text, {
-        position: toast.POSITION.BOTTOM_CENTER
-    })
+        position: toast.POSITION.BOTTOM_CENTER,
+    });
 };

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { GpaDrop } from "./GpaDrop";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { Box, FormControl, InputLabel, MenuItem } from "@mui/material";
+import { FormControl, InputLabel, MenuItem } from "@mui/material";
+import InfoTooltip from "./InfoTooltip";
 
 const Drop = () => {
     const [country, setCountry] = useState("");
@@ -27,10 +28,11 @@ const Drop = () => {
                     </Select>
                 </FormControl>
             </div>
-            <div className="alignLabel">
+            {country != "" && <div className="alignLabel" style={{width: '100vh', display: 'flex', flexDirection: 'row'}}>
                 <label htmlFor="scale-dropdown">Grading Scale :&emsp;</label>
-                <GpaDrop id="scale-dropdown" country={country} />
-            </div>
+                <GpaDrop id="scale-dropdown" country={country}/>
+                <InfoTooltip country={country} />
+            </div>}
         </div>
     );
 };
