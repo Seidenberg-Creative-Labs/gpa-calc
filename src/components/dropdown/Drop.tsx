@@ -3,6 +3,7 @@ import { GpaDrop } from "./GpaDrop";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
 import InfoTooltip from "./InfoTooltip";
+import { CSSTransition } from "react-transition-group";
 
 const Drop = () => {
     const [country, setCountry] = useState("");
@@ -28,11 +29,18 @@ const Drop = () => {
                     </Select>
                 </FormControl>
             </div>
-            {country != "" && <div className="alignLabel" style={{width: '100vh', display: 'flex', flexDirection: 'row'}}>
+            <CSSTransition
+                in={country != ""}
+                timeout={300}
+                classNames="fade"
+                unmountOnExit
+            >
+            <div className="alignLabel" style={{width: '100vh', display: 'flex', flexDirection: 'row'}}>
                 <label htmlFor="scale-dropdown">Grading Scale :&emsp;</label>
                 <GpaDrop id="scale-dropdown" country={country}/>
                 <InfoTooltip country={country} />
-            </div>}
+            </div>
+            </CSSTransition>
         </div>
     );
 };
