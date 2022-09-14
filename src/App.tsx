@@ -6,7 +6,7 @@ import Drop from "./components/dropdown/Drop";
 import { getScale } from "./components/dropdown/GpaDrop";
 import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
-import { displayToast, getGradeOutput } from "./utils/Utils";
+import {calcGpa, displayToast, getGradeOutput} from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
@@ -27,8 +27,6 @@ const App = () => {
 
     // Bool to determine if conversion output table is shown
     const [showOutput, setShowOutput] = useState(false);
-
-    const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
   const [conversionData, setConversionData] = useState([]);
 
@@ -54,7 +52,6 @@ const App = () => {
                 <WebHeader />
             </header>
             <body className="body">
-                {/*@ts-ignore*/}
                 <div className="test">
                     <Drop />
                     <div className="table-button">
@@ -83,10 +80,7 @@ const App = () => {
                                 onClick={() => {
 
                                     if (getScale) {
-                                        setConversionData(getGradeOutput(getScale, data))
-                                        if (showOutput) {
-                                            forceUpdate()
-                                        }
+                                        setConversionData(getGradeOutput(getScale, data));
                                         setShowOutput(true);
                                     } else {
                                         displayToast("Please select a GPA scale");
@@ -127,7 +121,10 @@ const App = () => {
                     classNames="fade"
                     unmountOnExit
                 >
-                    <TableGradesOutput data={conversionData} />
+                    <div>
+                        <TableGradesOutput data={conversionData} />
+                        <h2 style={{color: '#000000'}}>Cumulative GPA: {calcGpa(getScale, data)[1]}</h2>
+                    </div>
                 </CSSTransition>
                 <ToastContainer position="bottom-center" />
             </body>
@@ -136,11 +133,3 @@ const App = () => {
 };
 
 export default App;
-function setConversionData(arg0: string[][]) {
-    throw new Error("Function not implemented.");
-}
-
-function forceUpdate() {
-    throw new Error("Function not implemented.");
-}
-
