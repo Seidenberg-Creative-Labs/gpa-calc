@@ -56,7 +56,9 @@ const convertGPA = (scale:string, data:string[][]) => {
                     number_gpa.push(2.0); 
                 }
                 else {
-                    number_gpa.push(1.0); 
+                    //If no grade should be 0
+                    //Ask bayu
+                    number_gpa.push(0.0); 
                 }
             }
         break;
