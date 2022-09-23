@@ -1,7 +1,6 @@
 import React from 'react';
 import {FormControlLabel, TextField} from "@mui/material";
 import MUIDataTable from "mui-datatables";
-import { alignProperty } from '@mui/material/styles/cssUtils';
 import {deleteRowData} from "../../utils/Utils";
 
 const TableCourseInput = (props: any) => {

@@ -1,4 +1,5 @@
-import React, { useEffect, useReducer, useState } from "react";
+// @ts-nocheck
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import TableCourseInput from "./components/tables/TableCourseInput";
 import "react-dropdown/style.css";
@@ -28,23 +29,23 @@ const App = () => {
     // Bool to determine if conversion output table is shown
     const [showOutput, setShowOutput] = useState(false);
 
-  const [conversionData, setConversionData] = useState([]);
+    const [conversionData, setConversionData] = useState([]);
 
-  useEffect(() => {
-      // Update window dimensions
-      const handleResize = () => {
-          setDimensions({
-              height: window.innerHeight,
-              width: window.innerWidth,
-          });
-      }
-      // Window resize event listener
-      window.addEventListener("resize", handleResize);
+    useEffect(() => {
+        // Update window dimensions
+        const handleResize = () => {
+            setDimensions({
+                height: window.innerHeight,
+                width: window.innerWidth,
+            });
+        }
+        // Window resize event listener
+        window.addEventListener("resize", handleResize);
 
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, []);
+        }, []);
 
     return (
         <div className="App">
@@ -98,16 +99,6 @@ const App = () => {
                                         ["", "1", "0"],
                                         ["", "1", "0"],
                                     ]);
-                                    // Timeout to allow state to update
-                                    setTimeout(
-                                        () =>
-                                            window.scrollTo({
-                                                top: 0,
-                                                left: 0,
-                                                behavior: "smooth",
-                                            }),
-                                        10
-                                    );
                                 }}
                             >
                                 Reset Table

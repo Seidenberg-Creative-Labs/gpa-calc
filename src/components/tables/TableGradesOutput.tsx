@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MUIDataTable from "mui-datatables";
 import createCache from "@emotion/cache";
 import {CacheProvider} from "@emotion/react";
@@ -29,9 +29,8 @@ const TableGradesOutput = (props: any) => {
                 }
             },
         },
-        spacing:1
-
-        });
+        spacing: 1,
+    });
 
     return (
         <CacheProvider value={muiCache}>

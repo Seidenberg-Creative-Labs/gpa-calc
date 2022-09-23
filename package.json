@@ -1,11 +1,12 @@
 {
   "name": "gpa-calculator",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
+  "homepage": "https://seidenberg-creative-labs.github.io/gpa-calc/",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "test": "jest"
   },
