@@ -37,7 +37,7 @@ const TableCourseInput = (props: any) => {
                         control={<TextField value={value || ''} type='number' />}
                         label=""
                         onChange={event => {
-                            if (event.target.value > 0) {
+                            if (event.target.value >= 0) {
                                 updateValue(event.target.value)
                                 updateStateFromCell(event.target.value, tableMeta);
                             }
