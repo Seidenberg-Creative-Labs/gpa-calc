@@ -21,9 +21,9 @@ const App = () => {
     });
     // TableCourseInput data state (2D array)
     const [data, setData] = useState([
-        ["", 1, 0],
-        ["", 1, 0],
-        ["", 1, 0],
+        ["", '1', '0'],
+        ["", '1', '0'],
+        ["", '1', '0'],
     ]);
 
     // Bool to determine if conversion output table is shown
@@ -112,7 +112,7 @@ const App = () => {
                     classNames="fade"
                     unmountOnExit
                 >
-                    <div>
+                    <div id='table-output'>
                         <TableGradesOutput data={conversionData} />
                         <h2 style={{color: '#000000'}}>Cumulative GPA: {calcGpa(getScale, data)[1]}</h2>
                     </div>

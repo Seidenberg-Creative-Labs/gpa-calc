@@ -1,10 +1,10 @@
-@import url("https://fonts.google.com/?query=Barlow");
-
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 body {
   background-color: white;
   padding-bottom: 6vh;
-  font-family: 'Barlow', serif !important;
+  font-family: 'Lato', sans-serif;
   text-align: center;
 }
 
@@ -25,15 +25,13 @@ body {
   font-size: calc(10px + 2vmin);
   color: #002D72;
   font-weight: bold;
+  font-family: 'Barlow', sans-serif;
 }
 
 .body {
-  padding-top: 7vh;
   padding-left: 7vh;
-  font-family: 'Barlow' !important;
   display: flex;
   flex-direction: row;
-
 }
 
 .logo {
@@ -66,15 +64,10 @@ body {
   width: auto;
 }
 
-#gpaHeader {
-  font-family: 'Barlow';
-  font-size: 69px;
-}
-
 table {
   border: 1px solid lightgray;
   border-radius: 15px;
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
   margin-bottom: 4vh;
 }
 
@@ -82,35 +75,35 @@ th {
   /*border-bottom: 1px solid lightgray;*/
   /*border-right: 1px solid lightgray;*/
   padding: 2px 4px;
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
 }
 
 tfoot {
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
   color: gray;
 }
 
 tfoot th {
   font-weight: normal;
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
 }
 
 #btnMenu {
   max-width: 39.2vw;
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 #dropdown-selector {
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
   font-size: large;
   text-align: left;
 }
 
 #dropdown-label {
-  font-family: "Barlow";
+  font-family: 'Lato', sans-serif;
   font-size: large;
 }
 
@@ -124,7 +117,7 @@ tfoot th {
 
 .alignLabel {
   color: black;
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
   font-size: 22px;
   font-weight: bold;
   align-items: center;
@@ -132,7 +125,7 @@ tfoot th {
 }
 
 #bar {
-  font-family: "Barlow";
+  font-family: 'Lato', sans-serif;
 }
 
 .table-button{
@@ -142,6 +135,9 @@ tfoot th {
   margin-right: 10vw;
 }
 
+#table-output {
+  /*margin-top: 25.3vh;*/
+}
 /* output table */
 .mui-1ygcj2i-MuiTableCell-root{
   padding: 0 !important;
