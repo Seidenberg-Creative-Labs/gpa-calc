@@ -1,6 +1,6 @@
+import React, { useState } from "react";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
-import { useState } from "react";
 
 var getScale:string;
 

@@ -1,4 +1,5 @@
-import React, { useEffect, useReducer, useState } from "react";
+// @ts-nocheck
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import TableCourseInput from "./components/tables/TableCourseInput";
 import "react-dropdown/style.css";
@@ -6,7 +7,7 @@ import Drop from "./components/dropdown/Drop";
 import { getScale } from "./components/dropdown/GpaDrop";
 import WebHeader from "./components/WebHeader";
 import { Button, Stack } from "@mui/material";
-import { displayToast, getGradeOutput } from "./utils/Utils";
+import {calcGpa, displayToast, getGradeOutput} from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
@@ -20,33 +21,31 @@ const App = () => {
     });
     // TableCourseInput data state (2D array)
     const [data, setData] = useState([
-        ["", 1, 0],
-        ["", 1, 0],
-        ["", 1, 0],
+        ["", '1', '0'],
+        ["", '1', '0'],
+        ["", '1', '0'],
     ]);
 
     // Bool to determine if conversion output table is shown
     const [showOutput, setShowOutput] = useState(false);
 
-    const [, forceUpdate] = useReducer((x) => x + 1, 0);
+    const [conversionData, setConversionData] = useState([]);
 
-  const [conversionData, setConversionData] = useState([]);
-
-  useEffect(() => {
-      // Update window dimensions
-      const handleResize = () => {
-          setDimensions({
-              height: window.innerHeight,
-              width: window.innerWidth,
-          });
-      }
-      // Window resize event listener
-      window.addEventListener("resize", handleResize);
+    useEffect(() => {
+        // Update window dimensions
+        const handleResize = () => {
+            setDimensions({
+                height: window.innerHeight,
+                width: window.innerWidth,
+            });
+        }
+        // Window resize event listener
+        window.addEventListener("resize", handleResize);
 
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, []);
+        }, []);
 
     return (
         <div className="App">
@@ -54,7 +53,6 @@ const App = () => {
                 <WebHeader />
             </header>
             <body className="body">
-                {/*@ts-ignore*/}
                 <div className="test">
                     <Drop />
                     <div className="table-button">
@@ -83,10 +81,7 @@ const App = () => {
                                 onClick={() => {
 
                                     if (getScale) {
-                                        setConversionData(getGradeOutput(getScale, data))
-                                        if (showOutput) {
-                                            forceUpdate()
-                                        }
+                                        setConversionData(getGradeOutput(getScale, data));
                                         setShowOutput(true);
                                     } else {
                                         displayToast("Please select a GPA scale");
@@ -104,16 +99,6 @@ const App = () => {
                                         ["", "1", "0"],
                                         ["", "1", "0"],
                                     ]);
-                                    // Timeout to allow state to update
-                                    setTimeout(
-                                        () =>
-                                            window.scrollTo({
-                                                top: 0,
-                                                left: 0,
-                                                behavior: "smooth",
-                                            }),
-                                        10
-                                    );
                                 }}
                             >
                                 Reset Table
@@ -127,7 +112,10 @@ const App = () => {
                     classNames="fade"
                     unmountOnExit
                 >
-                    <TableGradesOutput data={conversionData} />
+                    <div id='table-output'>
+                        <TableGradesOutput data={conversionData} />
+                        <h2 style={{color: '#000000'}}>Cumulative GPA: {calcGpa(getScale, data)[1]}</h2>
+                    </div>
                 </CSSTransition>
                 <ToastContainer position="bottom-center" />
             </body>
@@ -136,11 +124,3 @@ const App = () => {
 };
 
 export default App;
-function setConversionData(arg0: string[][]) {
-    throw new Error("Function not implemented.");
-}
-
-function forceUpdate() {
-    throw new Error("Function not implemented.");
-}
-

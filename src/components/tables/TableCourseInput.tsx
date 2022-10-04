@@ -1,7 +1,6 @@
 import React from 'react';
 import {FormControlLabel, TextField} from "@mui/material";
 import MUIDataTable from "mui-datatables";
-import { alignProperty } from '@mui/material/styles/cssUtils';
 import {deleteRowData} from "../../utils/Utils";
 
 const TableCourseInput = (props: any) => {
@@ -38,7 +37,7 @@ const TableCourseInput = (props: any) => {
                         control={<TextField value={value || ''} type='number' />}
                         label=""
                         onChange={event => {
-                            if (event.target.value > 0) {
+                            if (event.target.value >= 0) {
                                 updateValue(event.target.value)
                                 updateStateFromCell(event.target.value, tableMeta);
                             }

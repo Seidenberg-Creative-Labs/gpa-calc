@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {toast} from "react-toastify";
 
 const convertGPA = (scale:string, data:string[][]) => {
@@ -8,17 +9,14 @@ const convertGPA = (scale:string, data:string[][]) => {
     switch (scale){
 
         case "5 Point Scale":
-            for(let i = 0; i < data.length; i++){
-                if (+data[i][2] <= 100 && +data[i][2] >= 90) {
-                    number_gpa.push(4.0); 
-                }
-                else if(+data[i][2] <= 89.99 && +data[i][2] >= 80) {
-                    number_gpa.push(3.0); 
-                }
-                else if(+data[i][2] <= 79.99 && +data[i][2] >= 70) {
-                    number_gpa.push(2.0); 
-                }
-                else if(+data[i][2] <= 69.99 && +data[i][2] >= 60) {
+            for(const element of data) {
+                if (+element[2] <= 100 && +element[2] >= 90) {
+                    number_gpa.push(4.0);
+                } else if (+element[2] <= 89.99 && +element[2] >= 80) {
+                    number_gpa.push(3.0);
+                } else if (+element[2] <= 79.99 && +element[2] >= 70) {
+                    number_gpa.push(2.0);
+                } else if (+element[2] <= 69.99 && +element[2] >= 60) {
                     number_gpa.push(1.0); 
                 }
                 else {
@@ -28,14 +26,12 @@ const convertGPA = (scale:string, data:string[][]) => {
         break;
 
         case "4 Point Scale":
-            for(let i = 0; i < data.length; i++){
-                if (+data[i][2] <= 100 && +data[i][2] >= 85) {
-                    number_gpa.push(4.0); 
-                }
-                else if(+data[i][2] <= 84.99 && +data[i][2] >= 75) {
-                    number_gpa.push(3.0); 
-                }
-                else if(+data[i][2] <= 74.99 && +data[i][2] >= 60) {
+            for(const element of data) {
+                if (+element[2] <= 100 && +element[2] >= 85) {
+                    number_gpa.push(4.0);
+                } else if (+element[2] <= 84.99 && +element[2] >= 75) {
+                    number_gpa.push(3.0);
+                } else if (+element[2] <= 74.99 && +element[2] >= 60) {
                     number_gpa.push(2.0); 
                 }
                 else {
@@ -45,37 +41,33 @@ const convertGPA = (scale:string, data:string[][]) => {
         break;
 
         case "Most Common Scale":
-            for(let i = 0; i < data.length; i++){
-                if (+data[i][2] <= 100 && +data[i][2] >= 60) {
-                    number_gpa.push(4.0); 
-                }
-                else if(+data[i][2] <= 59.99 && +data[i][2] >= 50) {
-                    number_gpa.push(3.0); 
-                }
-                else if(+data[i][2] <= 49.99 && +data[i][2] >= 30) {
+            for(const element of data) {
+                if (+element[2] <= 100 && +element[2] >= 60) {
+                    number_gpa.push(4.0);
+                } else if (+element[2] <= 59.99 && +element[2] >= 50) {
+                    number_gpa.push(3.0);
+                } else if (+element[2] <= 49.99 && +element[2] >= 30) {
                     number_gpa.push(2.0); 
                 }
                 else {
-                    number_gpa.push(1.0); 
+                    //If no grade should be 0
+                    //Ask bayu
+                    number_gpa.push(0.0); 
                 }
             }
         break;
 
         case "Letter Grade Scale":
-            for(let i = 0; i < data.length; i++){
-                if(+data[i][2] <= 10 && +data[i][2] >= 9) {
-                    number_gpa.push(4.0); 
-                }
-                else if(+data[i][2] <= 8.99 && +data[i][2] >= 8) {
-                    number_gpa.push(3.3); 
-                }
-                else if(+data[i][2] <= 7.99 && +data[i][2] >= 7) {
-                    number_gpa.push(3.0); 
-                }
-                else if(+data[i][2] <= 6.99 && +data[i][2] >= 6) {
-                    number_gpa.push(2.7); 
-                }
-                else if(+data[i][2] <= 5.99 && +data[i][2] >= 4) {
+            for(const element of data) {
+                if (+element[2] <= 10 && +element[2] >= 9) {
+                    number_gpa.push(4.0);
+                } else if (+element[2] <= 8.99 && +element[2] >= 8) {
+                    number_gpa.push(3.3);
+                } else if (+element[2] <= 7.99 && +element[2] >= 7) {
+                    number_gpa.push(3.0);
+                } else if (+element[2] <= 6.99 && +element[2] >= 6) {
+                    number_gpa.push(2.7);
+                } else if (+element[2] <= 5.99 && +element[2] >= 4) {
                     number_gpa.push(2.0); 
                 }
                 else {
@@ -85,20 +77,16 @@ const convertGPA = (scale:string, data:string[][]) => {
         break;
 
         case "10 Point Scale":
-            for(let i = 0; i < data.length; i++){
-                if(+data[i][2] <= 10 && +data[i][2] >= 9) {
-                    number_gpa.push(4.0); 
-                }
-                else if(+data[i][2] <= 8.99 && +data[i][2] >= 8) {
-                    number_gpa.push(3.3); 
-                }
-                else if(+data[i][2] <= 7.99 && +data[i][2] >= 7) {
-                    number_gpa.push(3.0); 
-                }
-                else if(+data[i][2] <= 6.99 && +data[i][2] >= 6) {
-                    number_gpa.push(2.7); 
-                }
-                else if(+data[i][2] <= 5.99 && +data[i][2] >= 4) {
+            for(const element of data) {
+                if (+element[2] <= 10 && +element[2] >= 9) {
+                    number_gpa.push(4.0);
+                } else if (+element[2] <= 8.99 && +element[2] >= 8) {
+                    number_gpa.push(3.3);
+                } else if (+element[2] <= 7.99 && +element[2] >= 7) {
+                    number_gpa.push(3.0);
+                } else if (+element[2] <= 6.99 && +element[2] >= 6) {
+                    number_gpa.push(2.7);
+                } else if (+element[2] <= 5.99 && +element[2] >= 4) {
                     number_gpa.push(2.0); 
                 }
                 else {
@@ -114,7 +102,7 @@ const convertGPA = (scale:string, data:string[][]) => {
 
 
 
-const calcGpa = (scale:string,data:string[][]) => {
+export const calcGpa = (scale:string,data:string[][]) => {
     var gpa = convertGPA(scale,data);
     
     var qpa_:number[] = [];
@@ -133,7 +121,7 @@ const calcGpa = (scale:string,data:string[][]) => {
 export const getGradeOutput = (scale:string, data:string[][]) => {
     const courseOutput = data.map(arr => {
         return arr.slice();
-    })
+    });
     const gpaResult = calcGpa(scale, data);
 
     courseOutput.forEach((arr, idx) => {
@@ -146,7 +134,7 @@ export const getGradeOutput = (scale:string, data:string[][]) => {
 }
 
 const getLetterGrade = (grade: number) => {
-if (grade >= 4.0) {
+    if (grade >= 4.0) {
         return "A";
     } else if (grade >= 3.7) {
         return "A-";
@@ -177,7 +165,7 @@ if (grade >= 4.0) {
 export const deleteRowData = (arr, data) => {
     const newData = data;
 
-    arr.forEach((row) => {
+    arr.forEach(row => {
         newData.splice(row.index, 1);
     });
 
@@ -186,6 +174,6 @@ export const deleteRowData = (arr, data) => {
 
 export const displayToast = text => {
     toast.error(text, {
-        position: toast.POSITION.BOTTOM_CENTER
-    })
+        position: toast.POSITION.BOTTOM_CENTER,
+    });
 };

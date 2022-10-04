@@ -1,10 +1,10 @@
-@import url("https://fonts.google.com/?query=Barlow");
-
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 body {
   background-color: white;
   padding-bottom: 6vh;
-  font-family: 'Barlow' !important;
+  font-family: 'Lato', sans-serif;
   text-align: center;
 }
 
@@ -18,7 +18,6 @@ body {
   background-color: #ffffff;
   min-height: 8vh;
   width: 100vw;
-  margin-left: calc(-50vw + 50%);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -26,15 +25,13 @@ body {
   font-size: calc(10px + 2vmin);
   color: #002D72;
   font-weight: bold;
+  font-family: 'Barlow', sans-serif;
 }
 
 .body {
-  padding-top: 7vh;
   padding-left: 7vh;
-  font-family: 'Barlow' !important;
   display: flex;
   flex-direction: row;
-
 }
 
 .logo {
@@ -67,15 +64,10 @@ body {
   width: auto;
 }
 
-#gpaHeader {
-  font-family: 'Barlow';
-  font-size: 69px;
-}
-
 table {
   border: 1px solid lightgray;
   border-radius: 15px;
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
   margin-bottom: 4vh;
 }
 
@@ -83,35 +75,35 @@ th {
   /*border-bottom: 1px solid lightgray;*/
   /*border-right: 1px solid lightgray;*/
   padding: 2px 4px;
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
 }
 
 tfoot {
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
   color: gray;
 }
 
 tfoot th {
   font-weight: normal;
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
 }
 
 #btnMenu {
   max-width: 39.2vw;
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
 #dropdown-selector {
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
   font-size: large;
   text-align: left;
 }
 
 #dropdown-label {
-  font-family: "Barlow";
+  font-family: 'Lato', sans-serif;
   font-size: large;
 }
 
@@ -125,7 +117,7 @@ tfoot th {
 
 .alignLabel {
   color: black;
-  font-family: 'Barlow';
+  font-family: 'Lato', sans-serif;
   font-size: 22px;
   font-weight: bold;
   align-items: center;
@@ -133,15 +125,19 @@ tfoot th {
 }
 
 #bar {
-  font-family: "Barlow";
+  font-family: 'Lato', sans-serif;
 }
 
 .table-button{
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-right: 10vw;
 }
 
+#table-output {
+  /*margin-top: 25.3vh;*/
+}
 /* output table */
 .mui-1ygcj2i-MuiTableCell-root{
   padding: 0 !important;
@@ -162,4 +158,25 @@ tfoot th {
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
+}
+
+@keyframes anvil {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+    box-shadow: 0 0 500px rgba(241, 241, 241, 0);
+  }
+}
+.popup-content {
+  -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
