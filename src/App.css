@@ -187,6 +187,12 @@ tfoot th {
 
 #ScreenShotsWIP{
   display: flex;
+  flex-direction: column;
+  margin-top: -176px;
+  align-items: center;
+}
+
+#rowFlex{
+  display: flex;
   flex-direction: row;
-  align-items: flex-start;
 }
