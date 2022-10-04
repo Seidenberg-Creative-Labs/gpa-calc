@@ -12,6 +12,7 @@ import TableGradesOutput from "./components/tables/TableGradesOutput";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { CSSTransition } from "react-transition-group";
+import {ShowGPAScale} from "./components/ShowGPAScale";
 
 const App = () => {
     // Browser window dimensions
@@ -53,8 +54,9 @@ const App = () => {
                 <WebHeader />
             </header>
             <body className="body">
-                <div className="test">
+                <div>
                     <Drop />
+                <div id="ScreenShotsWIP">
                     <div className="table-button">
                         <TableCourseInput data={data} setData={setData} />
                         <Stack
@@ -106,17 +108,24 @@ const App = () => {
                         </Stack>
                     </div>
                 </div>
-                <CSSTransition
+                
+                    <CSSTransition
                     in={showOutput}
                     timeout={300}
                     classNames="fade"
                     unmountOnExit
-                >
+                    >
                     <div id='table-output'>
                         <TableGradesOutput data={conversionData} />
                         <h2 style={{color: '#000000'}}>Cumulative GPA: {calcGpa(getScale, data)[1]}</h2>
                     </div>
-                </CSSTransition>
+                    </CSSTransition>
+                    {getScale === "5 Point Scale" ? <img src="./5scale.png" width={"500px"}/>:null}
+                    {getScale === "4 Point Scale" ? <img src="./4scale.png" width={"500px"}/>:null}
+                    {getScale === "Most Common Scale" ? <img src="./mostCommon.png" width={"500px"}/>:null}
+                    {getScale === "Letter Grade Scale" ? <img src="./letterGrade.png" width={"500px"}/>:null}
+                    {getScale === "10 Point Scale" ? <img src="./10scale.png" width={"500px"}/>:null}
+                </div>
                 <ToastContainer position="bottom-center" />
             </body>
         </div>
