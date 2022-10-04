@@ -26,6 +26,8 @@ body {
   color: #002D72;
   font-weight: bold;
   font-family: 'Barlow', sans-serif;
+  max-height: 130px;
+  padding-top: 0.7cm;
 }
 
 .body {
@@ -137,6 +139,8 @@ tfoot th {
 
 #table-output {
   /*margin-top: 25.3vh;*/
+  padding-top: 23vh;
+  position: static;
 }
 /* output table */
 .mui-1ygcj2i-MuiTableCell-root{
@@ -179,4 +183,16 @@ tfoot th {
 }
 .popup-content {
   -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+}
+
+#ScreenShotsWIP{
+  display: flex;
+  flex-direction: column;
+  margin-top: -176px;
+  align-items: center;
+}
+
+#rowFlex{
+  display: flex;
+  flex-direction: row;
 }
