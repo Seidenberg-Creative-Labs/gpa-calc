@@ -26,7 +26,8 @@ const GpaDrop = ({ country }: any) => {
 
                     {country === 'India' ? <MenuItem value={"Most Common Scale"}>Most Common Scale</MenuItem> : null}
                     {country === 'India' ? <MenuItem value={"Letter Grade Scale"}>Letter Grade Scale</MenuItem> : null}
-                    {country === 'India' ? <MenuItem value={"10 Point Scale"}>10 Point Scale</MenuItem> : null}
+                    {country === 'India' ? <MenuItem value={"Choice Based System"}>Choice Based Credit Scale</MenuItem> : null}
+                    {country == 'India' ? <MenuItem value={"IIT Scale"}> IIT Scale</MenuItem>: null};
                 </Select>
             </FormControl>
     );
