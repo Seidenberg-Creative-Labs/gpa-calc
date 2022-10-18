@@ -1,7 +1,7 @@
 import React from 'react';
 import {FormControlLabel, TextField} from "@mui/material";
 import MUIDataTable from "mui-datatables";
-import {deleteRowData} from "../../utils/Utils";
+import {deleteRowData, displayToast} from "../../utils/Utils";
 
 const TableCourseInput = (props: any) => {
     // Update data when cell value changed
@@ -58,7 +58,8 @@ const TableCourseInput = (props: any) => {
                             if (event.target.value >= 0 && event.target.value <= 100) {
                                 updateValue(event.target.value);
                                 updateStateFromCell(event.target.value, tableMeta);
-                            }
+                            } 
+
                         }}
                     />
                 )
@@ -79,5 +80,6 @@ const TableCourseInput = (props: any) => {
         <MUIDataTable title={"Course List"} data={props.data} columns={columns} options={options} />
     );
 };
+
 
 export default TableCourseInput;

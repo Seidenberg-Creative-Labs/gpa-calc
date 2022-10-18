@@ -31,6 +31,7 @@ const TableGradesOutput = (props: any) => {
         },
         spacing: 1,
     });
+        
 
     return (
         <CacheProvider value={muiCache}>
