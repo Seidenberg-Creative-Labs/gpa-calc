@@ -1,11 +1,11 @@
 // @ts-nocheck
 import {toast} from "react-toastify";
 
+
 const convertGPA = (scale:string, data:string[][]) => {
 
-    var letter_gpa:string[] = [];
     var number_gpa:GLfloat[] = [];
-
+    
     switch (scale){
 
         case "5 Point Scale":
@@ -76,6 +76,7 @@ const convertGPA = (scale:string, data:string[][]) => {
         break;
 
         case "IIT Scale":
+
             for(const element of data) {
                 if (+element[2] == 10) {
                     number_gpa.push(4.0);
@@ -89,8 +90,10 @@ const convertGPA = (scale:string, data:string[][]) => {
                     number_gpa.push(2.7); 
                 } else if (+element[2] <= 5 && +element[2] > 2) {
                     number_gpa.push(2.0)
-                } else {
+                } else if( +element[2] < 2 && +element[2] >= 0) {
                     number_gpa.push(0.0); 
+                } else {
+                    number_gpa.push("Invalid Input");
                 }
 
                 //Ask bayu decimal grade scale. Ex. 6.5 or 4.0 etc.
@@ -107,8 +110,10 @@ const convertGPA = (scale:string, data:string[][]) => {
                     number_gpa.push(3.0);
                 } else if (+element[2] == 5 || +element[2] == 4) {
                     number_gpa.push(2.0);
-                } else {
+                } else if( +element[2] <4 && +element[2]  >=0){
                     number_gpa.push(0.0); 
+                } else {
+                    number_gpa.push("Invalid Input");
                 }
                 
                 //Ask bayu decimal grade scale. Ex. 6.5 or 4.0 etc.
@@ -117,6 +122,7 @@ const convertGPA = (scale:string, data:string[][]) => {
         
 
     }
+
     return number_gpa;
 }
 
@@ -124,7 +130,7 @@ const convertGPA = (scale:string, data:string[][]) => {
 
 export const calcGpa = (scale:string,data:string[][]) => {
     var gpa = convertGPA(scale,data);
-    
+
     var qpa_:number[] = [];
     var total_QPA:number = 0;
     var total_credits:number = 0;
