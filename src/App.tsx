@@ -12,7 +12,7 @@ import TableGradesOutput from "./components/tables/TableGradesOutput";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { CSSTransition } from "react-transition-group";
-import { ShowGPAScale } from "./components/ShowGPAScale";
+import ScaleImage from "./components/tables/ScaleImage";
 
 const App = () => {
     // Browser window dimensions
@@ -56,9 +56,9 @@ const App = () => {
             <body className="body">
                 <div>
                     <Drop />
-                    <div id="rowFlex">
+                    <div id="gridContainer">
                         <div className="table-button">
-                            <TableCourseInput data={data} setData={setData} />
+                            <TableCourseInput id="table-input" data={data} setData={setData} />
                             <Stack
                                 spacing={2}
                                 direction="row"
@@ -127,21 +127,7 @@ const App = () => {
                                     </h2>
                                 </div>
                             </CSSTransition>
-                            {getScale === "5 Point Scale" ? (
-                                <img src="./5scale.png" width={"500px"} />
-                            ) : null}
-                            {getScale === "4 Point Scale" ? (
-                                <img src="./4scale.png" width={"500px"} />
-                            ) : null}
-                            {getScale === "Most Common Scale" ? (
-                                <img src="./mostCommon.png" width={"500px"} />
-                            ) : null}
-                            {getScale === "Letter Grade Scale" ? (
-                                <img src="./letterGrade.png" width={"500px"} />
-                            ) : null}
-                            {getScale === "10 Point Scale" ? (
-                                <img src="./10scale.png" width={"500px"} />
-                            ) : null}
+                            {showOutput && ScaleImage()}
                         </div>
                     </div>
                 </div>
