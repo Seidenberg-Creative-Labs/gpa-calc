@@ -6,20 +6,16 @@ import "react-dropdown/style.css";
 import Drop from "./components/dropdown/Drop";
 import { getScale } from "./components/dropdown/GpaDrop";
 import WebHeader from "./components/WebHeader";
-import { Button, Stack } from "@mui/material";
+import {Button, Grid, Stack} from "@mui/material";
 import { calcGpa, displayToast, getGradeOutput } from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { CSSTransition } from "react-transition-group";
 import { ShowGPAScale } from "./components/ShowGPAScale";
+import {Container} from "react-bootstrap";
 
 const App = () => {
-    // Browser window dimensions
-    const [dimensions, setDimensions] = useState({
-        height: window.innerHeight,
-        width: window.innerWidth,
-    });
     // TableCourseInput data state (2D array)
     const [data, setData] = useState([
         ["", "1", "0"],
@@ -32,47 +28,31 @@ const App = () => {
 
     const [conversionData, setConversionData] = useState([]);
 
-    useEffect(() => {
-        // Update window dimensions
-        const handleResize = () => {
-            setDimensions({
-                height: window.innerHeight,
-                width: window.innerWidth,
-            });
-        };
-        // Window resize event listener
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
     return (
-        <div className="App">
+        <Grid container>
+            {/* Page header */}
             <header className="header">
                 <WebHeader />
             </header>
             <body className="body">
-                <div>
+                <Grid container direction='column'>
+                    {/* Dropdown component */}
                     <Drop />
-                    <div id="rowFlex">
+                    <Grid container direction={{xs: 'column', lg: 'row'}} id='rowFlex'>
                         <div className="table-button">
                             <TableCourseInput data={data} setData={setData} />
                             <Stack
-                                spacing={2}
+                                spacing={10.25}
+                                width='40%'
                                 direction="row"
                                 id="btnMenu"
                                 style={{
-                                    marginTop: "4vh",
-                                    width:
-                                        window.innerWidth <= 760
-                                            ? "100vw"
-                                            : "50vw",
+                                    marginTop: '4vh',
                                 }}
                             >
                                 <Button
                                     variant="contained"
+                                    style={{minWidth: '60%'}}
                                     onClick={() => {
                                         // Add new empty row to data
                                         setData([...data, ["", "1", "0"]]);
@@ -82,6 +62,7 @@ const App = () => {
                                 </Button>
                                 <Button
                                     variant="contained"
+                                    style={{minWidth: '60%'}}
                                     onClick={() => {
                                         if (getScale) {
                                             setConversionData(
@@ -99,6 +80,7 @@ const App = () => {
                                 </Button>
                                 <Button
                                     variant="contained"
+                                    style={{minWidth: '60%'}}
                                     onClick={() => {
                                         setShowOutput(false);
                                         setData([
@@ -112,7 +94,7 @@ const App = () => {
                                 </Button>
                             </Stack>
                         </div>
-                        <div id="ScreenShotsWIP">
+                        <Grid item id="ScreenShotsWIP">
                             <CSSTransition
                                 in={showOutput}
                                 timeout={300}
@@ -121,10 +103,11 @@ const App = () => {
                             >
                                 <div id="table-output">
                                     <TableGradesOutput data={conversionData} />
-                                    <h2 style={{ color: "#000000" }}>
+                                    <h2 style={{color: "#000000", textAlign: 'center'}}>
                                         Cumulative GPA:{" "}
                                         {calcGpa(getScale, data)[1]}
                                     </h2>
+                                    <hr/>
                                 </div>
                             </CSSTransition>
                             {getScale === "5 Point Scale" ? (
@@ -142,12 +125,12 @@ const App = () => {
                             {getScale === "10 Point Scale" ? (
                                 <img src="./10scale.png" width={"500px"} />
                             ) : null}
-                        </div>
-                    </div>
-                </div>
+                        </Grid>
+                    </Grid>
+                </Grid>
                 <ToastContainer position="bottom-center" />
             </body>
-        </div>
+        </Grid>
     );
 };
 

@@ -11,6 +11,7 @@ const TableGradesOutput = (props: any) => {
         selection: false,
         selectableRows: false,
         filter: false,
+        responsive: true,
     };
 
     const muiCache = createCache({
@@ -25,19 +26,18 @@ const TableGradesOutput = (props: any) => {
                 styleOverrides: {
                     root: {
                         textAlign:'center',
-                    }
-                }
+                    },
+                },
             },
         },
-        spacing: 1,
     });
 
     return (
         <CacheProvider value={muiCache}>
             {/* width="500px" */}
-            <Box sx={{}}>
+            <Box>
                 <ThemeProvider theme={getMuiTheme()}>
-                    <MUIDataTable title={"Calculated Grades"} data={props.data} columns={columns} options={options} />
+                    <MUIDataTable title="Calculated Grades" data={props.data} columns={columns} options={options} />
                 </ThemeProvider>
             </Box>
         </CacheProvider>

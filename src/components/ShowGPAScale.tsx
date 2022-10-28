@@ -1,4 +1,3 @@
-
 const GetGPAScale = () => {
 
         // 5 Point Scale

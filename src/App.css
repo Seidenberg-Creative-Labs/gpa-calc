@@ -9,31 +9,25 @@ body {
 }
 
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .header {
-  background-color: #ffffff;
-  min-height: 8vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
   font-size: calc(10px + 2vmin);
   color: #002D72;
   font-weight: bold;
   font-family: 'Barlow', sans-serif;
-  max-height: 130px;
-  padding-top: 0.7cm;
+  text-align: center;
 }
 
 .body {
-  padding-left: 7vh;
+  margin-top: 5vh;
   display: flex;
   flex-direction: row;
+  padding-left: 3vw;
 }
 
 .logo {
@@ -51,19 +45,13 @@ body {
 }
 
 #paceSCIS {
-  position: relative;
-  top: 15%;
   max-width: 260px;
   max-height: 130px;
-  height: auto;
-  width: auto;
 }
 
 #paceOoA {
   max-width: 230px;
   max-height: 170px;
-  height: auto;
-  width: auto;
 }
 
 table {
@@ -113,7 +101,7 @@ tfoot th {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 15vw;
+  height: 18vh;
   align-items: flex-start;
 }
 
@@ -132,15 +120,14 @@ tfoot th {
 
 .table-button{
   display: flex;
-  align-items: center;
+  align-items: start;
   flex-direction: column;
   margin-right: 10vw;
+  margin-bottom: 2vh;
 }
 
 #table-output {
-  /*margin-top: 25.3vh;*/
   padding-top: 23vh;
-  position: static;
 }
 /* output table */
 .mui-1ygcj2i-MuiTableCell-root{
@@ -195,4 +182,11 @@ tfoot th {
 #rowFlex{
   display: flex;
   flex-direction: row;
+}
+
+.img-responsive {
+  max-width: 32vw;
+  height: 16vh;
+  padding: 0;
+  margin: 0;
 }
