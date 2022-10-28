@@ -4,7 +4,6 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
 import InfoTooltip from "./InfoTooltip";
 import { CSSTransition } from "react-transition-group";
-import {Row} from "react-bootstrap";
 
 const Drop = () => {
     const [country, setCountry] = useState("");
@@ -30,7 +29,6 @@ const Drop = () => {
                     </Select>
                 </FormControl>
             </div>
-            <Row>
                 <CSSTransition
                     in={country != ""}
                     timeout={300}
@@ -43,7 +41,6 @@ const Drop = () => {
                         <InfoTooltip country={country} />
                     </div>
                 </CSSTransition>
-            </Row>
         </div>
     );
 };

@@ -184,7 +184,7 @@ tfoot th {
   flex-direction: row;
 }
 
-.img-responsive {
+.img-header {
   max-width: 32vw;
   height: 16vh;
   padding: 0;

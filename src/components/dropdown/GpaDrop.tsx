@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
 
-var getScale:string;
+let getScale: string;
 
 const GpaDrop = ({ country }: any) => {
     const [scale, setScale] = useState('');
