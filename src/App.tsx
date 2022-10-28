@@ -74,7 +74,7 @@ const App = () => {
                             >
                                 {/* Button group to add rows */}
                                 <Fragment>
-                                    <ButtonGroup variant='contained'>
+                                    <ButtonGroup variant='contained' ref={anchorRef} aria-label="split button" >
                                         <Button onClick={() => {
                                             if (selectedButtonIdx === 0) {
                                                 setData([...data, ["", "1", "0"]]);
