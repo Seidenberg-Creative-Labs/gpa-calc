@@ -29,7 +29,7 @@ const TableCourseInput = (props: any) => {
             },
         },
         {
-            name: "Credits/Hours",
+            name: "Credits / Hours *",
             options: {
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
@@ -52,7 +52,7 @@ const TableCourseInput = (props: any) => {
             },
         },
         {
-            name: "Grade",
+            name: "Grade *",
             options: {
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
@@ -86,6 +86,7 @@ const TableCourseInput = (props: any) => {
             props.setData(deleteRowData(e.data, props.data));
         },
         pagination: false,
+        responsive: true,
     };
 
     const getMuiTheme = () =>
