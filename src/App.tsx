@@ -60,9 +60,10 @@ const App = () => {
                 <Grid container direction='column'>
                     {/* Dropdown component */}
                     <Drop />
+
                     <Grid container direction={{xs: 'column', lg: 'row'}} id='rowFlex'>
                         <div className="table-button">
-                            <TableCourseInput data={data} setData={setData} />
+                            <TableCourseInput id="table-input" data={data} setData={setData} />
                             <Stack
                                 spacing={10.25}
                                 width='40%'
@@ -255,6 +256,10 @@ const App = () => {
                     </DialogActions>
                 </Dialog>
                 {/* Error message container */}
+                            {/* showOutput && ScaleImage() */}
+                        </div>
+                    </div>
+                </div>
                 <ToastContainer position="bottom-center" />
             </body>
         </Grid>

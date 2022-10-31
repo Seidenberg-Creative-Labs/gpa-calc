@@ -1,11 +1,11 @@
 // @ts-nocheck
 import {toast} from "react-toastify";
 
+
 const convertGPA = (scale:string, data:string[][]) => {
 
-    var letter_gpa:string[] = [];
     var number_gpa:GLfloat[] = [];
-
+    
     switch (scale){
 
         case "5 Point Scale":
@@ -42,16 +42,15 @@ const convertGPA = (scale:string, data:string[][]) => {
 
         case "Most Common Scale":
             for(const element of data) {
-                if (+element[2] <= 100 && +element[2] >= 60) {
+                if (+element[2] <= 100 && +element[2] >= 70) {
                     number_gpa.push(4.0);
-                } else if (+element[2] <= 59.99 && +element[2] >= 50) {
-                    number_gpa.push(3.0);
-                } else if (+element[2] <= 49.99 && +element[2] >= 30) {
-                    number_gpa.push(2.0); 
-                }
-                else {
-                    //If no grade should be 0
-                    //Ask bayu
+                } else if (+element[2] <= 69.99 && +element[2] >= 60) {
+                    number_gpa.push(3.7);
+                } else if (+element[2] <= 59.99 && +element[2] >= 45) {
+                    number_gpa.push(3.0); 
+                } else if(+element[2] <= 44 && +element[2] >= 35) {
+                    number_gpa.push(2.0);
+                } else {
                     number_gpa.push(0.0); 
                 }
             }
@@ -76,27 +75,54 @@ const convertGPA = (scale:string, data:string[][]) => {
             }
         break;
 
-        case "10 Point Scale":
+        case "IIT Scale":
+
             for(const element of data) {
-                if (+element[2] <= 10 && +element[2] >= 9) {
+                if (+element[2] == 10) {
                     number_gpa.push(4.0);
-                } else if (+element[2] <= 8.99 && +element[2] >= 8) {
+                } else if (+element[2] == 9) {
+                    number_gpa.push(3.7);
+                } else if (+element[2] == 8) {
                     number_gpa.push(3.3);
-                } else if (+element[2] <= 7.99 && +element[2] >= 7) {
+                } else if (+element[2] == 7) {
                     number_gpa.push(3.0);
-                } else if (+element[2] <= 6.99 && +element[2] >= 6) {
-                    number_gpa.push(2.7);
-                } else if (+element[2] <= 5.99 && +element[2] >= 4) {
-                    number_gpa.push(2.0); 
-                }
-                else {
+                } else if (+element[2] == 6) {
+                    number_gpa.push(2.7); 
+                } else if (+element[2] <= 5 && +element[2] > 2) {
+                    number_gpa.push(2.0)
+                } else if( +element[2] < 2 && +element[2] >= 0) {
                     number_gpa.push(0.0); 
+                } else {
+                    number_gpa.push("Invalid Input");
                 }
+
+                //Ask bayu decimal grade scale. Ex. 6.5 or 4.0 etc.
+            }
+        break;
+
+        case "Choice Based System":
+            for(const element of data) {
+                if (+element[2] == 10 || +element[2] == 9 || +element[2] == 8) {
+                    number_gpa.push(4.0);
+                } else if (+element[2] == 7) {
+                    number_gpa.push(3.7);
+                } else if (+element[2] == 6) {
+                    number_gpa.push(3.0);
+                } else if (+element[2] == 5 || +element[2] == 4) {
+                    number_gpa.push(2.0);
+                } else if( +element[2] <4 && +element[2]  >=0){
+                    number_gpa.push(0.0); 
+                } else {
+                    number_gpa.push("Invalid Input");
+                }
+                
+                //Ask bayu decimal grade scale. Ex. 6.5 or 4.0 etc.
             }
         break;
         
 
     }
+
     return number_gpa;
 }
 
@@ -104,7 +130,7 @@ const convertGPA = (scale:string, data:string[][]) => {
 
 export const calcGpa = (scale:string,data:string[][]) => {
     var gpa = convertGPA(scale,data);
-    
+
     var qpa_:number[] = [];
     var total_QPA:number = 0;
     var total_credits:number = 0;

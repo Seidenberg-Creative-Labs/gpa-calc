@@ -30,20 +30,6 @@ body {
   padding-left: 3vw;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
 #paceSCIS {
   max-width: 260px;
   max-height: 130px;
@@ -112,6 +98,7 @@ tfoot th {
   font-weight: bold;
   align-items: center;
   display: flex;
+  margin-left: 1vw;
 }
 
 #bar {
@@ -128,7 +115,11 @@ tfoot th {
 
 #table-output {
   padding-top: 23vh;
+  flex-direction: column;
+  margin-right: 10vw;
+  width: 580px;
 }
+
 /* output table */
 .mui-1ygcj2i-MuiTableCell-root{
   padding: 0 !important;
@@ -175,7 +166,6 @@ tfoot th {
 #ScreenShotsWIP{
   display: flex;
   flex-direction: column;
-  margin-top: -176px;
   align-items: center;
 }
 
@@ -189,4 +179,14 @@ tfoot th {
   height: 16vh;
   padding: 0;
   margin: 0;
+}
+#gridContainer{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+}
+
+#table-input{
+  grid-row-start: 1;
+  grid-row-end: 1;
 }
