@@ -1,14 +1,20 @@
-import React from 'react';
-import {FormControlLabel, TextField} from "@mui/material";
+import React from "react";
+import {
+    Box,
+    createTheme,
+    FormControlLabel,
+    TextField,
+    ThemeProvider,
+} from "@mui/material";
 import MUIDataTable from "mui-datatables";
-import {deleteRowData} from "../../utils/Utils";
+import { deleteRowData } from "../../utils/Utils";
 
 const TableCourseInput = (props: any) => {
     // Update data when cell value changed
     const updateStateFromCell = (value, tableMeta) => {
         const data = props.data;
         data[tableMeta.rowIndex][tableMeta.columnIndex] = value;
-    }
+    };
 
     const columns = [
         {
@@ -20,72 +26,99 @@ const TableCourseInput = (props: any) => {
                         control={<TextField value={value} />}
                         label=""
                         value={value}
-                        onChange={event => {
+                        onChange={(event) => {
                             updateValue(event.target.value);
                             updateStateFromCell(event.target.value, tableMeta);
                         }}
                     />
-                )
-            }
+                ),
+            },
         },
         {
-<<<<<<< HEAD
-            name: "Credits / Hours *",
-=======
             name: "Credits / Hours*",
->>>>>>> parent of a250d7c (Merge pull request #44 from Seidenberg-Creative-Labs/kevin-develop)
             options: {
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
                         sx={{ width: 70 }}
-                        control={<TextField value={value || ''} type='number' />}
+                        control={
+                            <TextField value={value || ""} type="number" />
+                        }
                         label=""
-                        onChange={event => {
+                        onChange={(event) => {
                             if (event.target.value >= 0) {
-                                updateValue(event.target.value)
-                                updateStateFromCell(event.target.value, tableMeta);
+                                updateValue(event.target.value);
+                                updateStateFromCell(
+                                    event.target.value,
+                                    tableMeta
+                                );
                             }
                         }}
                     />
-                )
-            }
+                ),
+            },
         },
         {
-<<<<<<< HEAD
-            name: "Grade *",
-=======
             name: "Grade*",
->>>>>>> parent of a250d7c (Merge pull request #44 from Seidenberg-Creative-Labs/kevin-develop)
             options: {
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
-                        sx={{ width: 100 }} 
-                        control={<TextField value={value || ''} type='number' />}
+                        sx={{ width: 100 }}
+                        control={
+                            <TextField value={value || ""} type="number" />
+                        }
                         label=""
-                        onChange={event => {
-                            if (event.target.value >= 0 && event.target.value <= 100) {
+                        onChange={(event) => {
+                            if (
+                                event.target.value >= 0 &&
+                                event.target.value <= 100
+                            ) {
                                 updateValue(event.target.value);
-                                updateStateFromCell(event.target.value, tableMeta);
+                                updateStateFromCell(
+                                    event.target.value,
+                                    tableMeta
+                                );
                             }
                         }}
                     />
-                )
-            }
+                ),
+            },
         },
     ];
 
     const options = {
         selection: true,
         filter: false,
-        onRowsDelete: e => {
+        onRowsDelete: (e) => {
             props.setData(deleteRowData(e.data, props.data));
         },
         pagination: false,
         responsive: true,
     };
 
+    const getMuiTheme = () =>
+        createTheme({
+            components: {
+                MUIDataTableBodyCell: {
+                    styleOverrides: {
+                        root: {
+                            textAlign: "center",
+                        },
+                    },
+                },
+            },
+        });
+
     return (
-        <MUIDataTable title={"Course List"} data={props.data} columns={columns} options={options} />
+        <Box sx={{ width: "585px" }}>
+            <ThemeProvider theme={getMuiTheme()}>
+                <MUIDataTable
+                    title={"Course List"}
+                    data={props.data}
+                    columns={columns}
+                    options={options}
+                />
+            </ThemeProvider>
+        </Box>
     );
 };
 

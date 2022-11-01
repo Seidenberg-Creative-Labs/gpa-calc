@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, {Fragment, useRef, useState} from "react";
+import React, { Fragment, useRef, useState } from "react";
 import "./App.css";
 import TableCourseInput from "./components/tables/TableCourseInput";
 import "react-dropdown/style.css";
@@ -10,24 +10,26 @@ import {
     Button,
     ButtonGroup,
     ClickAwayListener,
-    Dialog, DialogActions, DialogContent, DialogTitle,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
     Grid,
     MenuItem,
     MenuList,
     Paper,
     Popper,
     Stack,
-    TextField
+    TextField,
 } from "@mui/material";
 import { calcGpa, displayToast, getGradeOutput } from "./utils/Utils";
 import TableGradesOutput from "./components/tables/TableGradesOutput";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { CSSTransition } from "react-transition-group";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import Grow from '@mui/material/Grow';
-import LoadingButton from '@mui/lab/LoadingButton';
-import ScaleImage from "./components/tables/ScaleImage";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import Grow from "@mui/material/Grow";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 const App = () => {
     // TableCourseInput data state (2D array)
@@ -42,7 +44,7 @@ const App = () => {
 
     const [conversionData, setConversionData] = useState([]);
 
-    const addRowOptions = ['Add a course', 'Add multiple courses'];
+    const addRowOptions = ["Add a course", "Add multiple courses"];
     const [selectedButtonIdx, setSelectedButtonIdx] = useState(0);
     const [buttonOpen, setButtonOpen] = useState(false);
     const anchorRef = useRef(null);
@@ -58,79 +60,124 @@ const App = () => {
                 <WebHeader />
             </header>
             <body className="body">
-                <Grid container direction='column'>
+                <div id="rowFlex">
                     {/* Dropdown component */}
                     <Drop />
-                    <div id="rowFlex">
+
+                    <Grid
+                        container
+                        direction={{ xs: "column", lg: "row" }}
+                    >
                         <div className="table-button">
                             <TableCourseInput data={data} setData={setData} />
                             <Stack
                                 spacing={10.25}
-                                width='40%'
+                                width="40%"
                                 direction="row"
                                 id="btnMenu"
                                 style={{
-                                    marginTop: '4vh',
+                                    marginTop: "4vh",
                                 }}
                             >
                                 {/* Button group to add rows */}
                                 <Fragment>
-                                    <ButtonGroup variant='contained' ref={anchorRef} aria-label="split button" >
-                                        <Button onClick={() => {
-                                            if (selectedButtonIdx === 0) {
-                                                setData([...data, ["", "1", "0"]]);
-                                            } else {
-                                                setDialogOpen(true);
-                                            }
-                                        }}>
-                                            {addRowOptions[selectedButtonIdx]}</Button>
+                                    <ButtonGroup
+                                        variant="contained"
+                                        ref={anchorRef}
+                                        aria-label="split button"
+                                     >
                                         <Button
-                                            size='small'
-                                            aria-controls={open ? 'split-button-menu' : undefined}
-                                            aria-expanded={open ? 'true' : undefined}
-                                            aria-label='Select row options'
-                                            aria-haspopup='menu'
-                                            onClick={() => setButtonOpen(prevOpen => !prevOpen)}
+                                            onClick={() => {
+                                                if (selectedButtonIdx === 0) {
+                                                    setData([
+                                                        ...data,
+                                                        ["", "1", "0"],
+                                                    ]);
+                                                } else {
+                                                    setDialogOpen(true);
+                                                }
+                                            }}
+                                        >
+                                            {addRowOptions[selectedButtonIdx]}
+                                        </Button>
+                                        <Button
+                                            size="small"
+                                            aria-controls={
+                                                open
+                                                    ? "split-button-menu"
+                                                    : undefined
+                                            }
+                                            aria-expanded={
+                                                open ? "true" : undefined
+                                            }
+                                            aria-label="Select row options"
+                                            aria-haspopup="menu"
+                                            onClick={() =>
+                                                setButtonOpen(
+                                                    (prevOpen) => !prevOpen
+                                                )
+                                            }
                                         >
                                             <ArrowDropDownIcon />
                                         </Button>
                                     </ButtonGroup>
                                     <Popper
-                                        sx={{zIndex: 1}}
+                                        sx={{ zIndex: 1 }}
                                         open={buttonOpen}
                                         anchorEl={anchorRef.current}
                                         role={undefined}
                                         transition
                                         disablePortal
-                                    >
-                                        {({TransitionProps, placement}) => (
+                                     >
+                                        {({ TransitionProps, placement }) => (
                                             <Grow
                                                 {...TransitionProps}
                                                 style={{
                                                     transformOrigin:
-                                                        placement === 'bottom' ? 'center top' : 'center bottom',
+                                                        placement === "bottom"
+                                                            ? "center top"
+                                                            : "center bottom",
                                                 }}
                                             >
                                                 <Paper>
                                                     <ClickAwayListener
-                                                        onClickAway={event => {
-                                                            if (anchorRef.current && anchorRef.current.contains(event.target)) {
+                                                        onClickAway={(
+                                                            event
+                                                        ) => {
+                                                            if (
+                                                                anchorRef.current &&
+                                                                anchorRef.current.contains(
+                                                                    event.target
+                                                                )
+                                                            ) {
                                                                 return;
                                                             }
-                                                        }}>
-                                                        <MenuList id='split-button-menu' autoFocusItem>
-                                                            {addRowOptions.map((option, index) => (
-                                                                <MenuItem
-                                                                    key={option}
-                                                                    selected={index === selectedButtonIdx}
-                                                                    onClick={event => {
-                                                                        setSelectedButtonIdx(index);
-                                                                        setButtonOpen(false);
-                                                                    }}
-                                                                >
-                                                                    {option}
-                                                                </MenuItem>
-                                                            ))}
+                                                        }}
+                                                    >
+                                                        <MenuList
+                                                            id="split-button-menu"
+                                                            autoFocusItem
+                                                        >
+                                                            {addRowOptions.map(
+                                                                (option,index) => (
+                                                                    <MenuItem
+                                                                        key={option}
+                                                                        selected={index === selectedButtonIdx}
+                                                                        onClick={(
+                                                                            event
+                                                                        ) => {
+                                                                            setSelectedButtonIdx(
+                                                                                index
+                                                                            );
+                                                                            setButtonOpen(
+                                                                                false
+                                                                            );
+                                                                        }}
+                                                                    >
+                                                                        {option}
+                                                                    </MenuItem>
+                                                                )
+                                                            )}
                                                         </MenuList>
                                                     </ClickAwayListener>
                                                 </Paper>
@@ -141,7 +188,7 @@ const App = () => {
                                 {/* Button to select scale */}
                                 <Button
                                     variant="contained"
-                                    style={{minWidth: '60%'}}
+                                    style={{ minWidth: "60%" }}
                                     onClick={() => {
                                         if (getScale) {
                                             setConversionData(
@@ -160,7 +207,7 @@ const App = () => {
                                 {/* Button to reset table and data */}
                                 <Button
                                     variant="contained"
-                                    style={{minWidth: '60%'}}
+                                    style={{ minWidth: "60%" }}
                                     onClick={() => {
                                         setShowOutput(false);
                                         setData([
@@ -174,7 +221,7 @@ const App = () => {
                                 </Button>
                             </Stack>
                         </div>
-                        <div id="PictureAndOutput">
+                        <div id="ScreenShotsWIP">
                             <CSSTransition
                                 in={showOutput}
                                 timeout={300}
@@ -185,69 +232,78 @@ const App = () => {
                                     {/* Table displaying individual calculated grades after conversion */}
                                     <TableGradesOutput data={conversionData} />
                                     {/* Show calculated cumulative GPA */}
-                                    <h2 style={{color: "#000000", textAlign: 'center'}}>
+                                    <h2
+                                        style={{
+                                            color: "#000000",
+                                            textAlign: "center",
+                                        }}
+                                    >
                                         Cumulative GPA:{" "}
                                         {calcGpa(getScale, data)[1]}
                                     </h2>
-                                    <hr/>
+                                    <hr />
                                 </div>
                             </CSSTransition>
                             {/* Display relevant scale image based on getScale val */}
-                            
+
                             {showOutput && ScaleImage()}
                         </div>
-                        </div>
-                    </Grid>
 
-                {/* Dialog to select number of rows to add */}
-                <Dialog
-                    open={dialogOpen}
-                    onClose={() => setDialogOpen(false)}
-                    >
-                    <DialogTitle id='alert-dialog-title'>
-                        {`Enter the number of courses you'd like to add:`}
-                    </DialogTitle>
-                    <DialogContent>
-                        <TextField
-                            type='number'
-                            value={dialogValue}
-                            onChange={event => {
-                                if (event.target.value >= 0) {
-                                    setDialogValue(event.target.value);
-                                }
-                            }}
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={() => {
-                            setDialogOpen(false);
-                            setDialogValue(1);
-                        }}>Cancel</Button>
-                        <LoadingButton
-                            onClick={() => {
-                                setLoading(true);
-                                for (let i = 0; i < dialogValue; i++) {
-                                    data.push(["", "1", "0"]);
-                                }
-                                setLoading(false);
-                                setDialogOpen(false);
-                                setDialogValue(1);
-                            }}
-                            loading={loading}
-                            loadingPosition='end'
-                            variant='contained'
-                            size='small'
-                            autoFocus
+                        {/* Dialog to select number of rows to add */}
+                        <Dialog
+                            open={dialogOpen}
+                            onClose={() => setDialogOpen(false)}
                         >
-                            Confirm
-                        </LoadingButton>
-                    </DialogActions>
-                </Dialog>
-                    {/* Error message container */}
-                            
+                            <DialogTitle id="alert-dialog-title">
+                                {`Enter the number of courses you'd like to add:`}
+                            </DialogTitle>
+                            <DialogContent>
+                                <TextField
+                                    type="number"
+                                    value={dialogValue}
+                                    onChange={(event) => {
+                                        if (event.target.value >= 0) {
+                                            setDialogValue(event.target.value);
+                                        }
+                                    }}
+                                />
+                            </DialogContent>
+                            <DialogActions>
+                                <Button
+                                    onClick={() => {
+                                        setDialogOpen(false);
+                                        setDialogValue(1);
+                                    }}
+                                >
+                                    Cancel
+                                </Button>
+                                <LoadingButton
+                                    onClick={() => {
+                                        setLoading(true);
+                                        for (let i = 0; i < dialogValue; i++) {
+                                            data.push(["", "1", "0"]);
+                                        }
+                                        setLoading(false);
+                                        setDialogOpen(false);
+                                        setDialogValue(1);
+                                    }}
+                                    loading={loading}
+                                    loadingPosition="end"
+                                    variant="contained"
+                                    size="small"
+                                    autoFocus
+                                >
+                                    Confirm
+                                </LoadingButton>
+                            </DialogActions>
+                        </Dialog>
+                        {/* Error message container */}
+                        {/* showOutput && ScaleImage() */}
+                    </Grid>
+                </div>
                 <ToastContainer position="bottom-center" />
             </body>
-        </Grid> */}
+        </Grid>
     );
 };
 

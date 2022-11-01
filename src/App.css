@@ -9,11 +9,7 @@ body {
 }
 
 #root {
-<<<<<<< HEAD
   width: 100%;
-=======
-  max-width: 1280px;
->>>>>>> parent of a250d7c (Merge pull request #44 from Seidenberg-Creative-Labs/kevin-develop)
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -124,7 +120,6 @@ tfoot th {
 
 .table-button{
   display: flex;
-<<<<<<< HEAD
   align-items: start;
   flex-direction: column;
   margin-right: 10vw;
@@ -133,9 +128,7 @@ tfoot th {
 
 #table-output {
   padding-top: 23vh;
-=======
   align-items: center;
->>>>>>> parent of a250d7c (Merge pull request #44 from Seidenberg-Creative-Labs/kevin-develop)
   flex-direction: column;
   margin-right: 10vw;
 }
@@ -188,21 +181,17 @@ tfoot th {
   -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
 
-#PictureAndOutput{
+#ScreenShotsWIP{
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
   align-items: center !important;
-=======
-  margin-top: -176px;
-  align-items: center;
->>>>>>> parent of a250d7c (Merge pull request #44 from Seidenberg-Creative-Labs/kevin-develop)
+  margin-top: -60px;
 }
 
 #rowFlex{
   display: flex;
-  flex-direction: row;
-<<<<<<< HEAD
+  flex-direction: column;
+  margin-top: 30px;
 }
 
 .img-header {
@@ -225,6 +214,5 @@ tfoot th {
 #table-output {
   grid-row-start: 2;
   grid-row-end: 2;
-=======
->>>>>>> parent of a250d7c (Merge pull request #44 from Seidenberg-Creative-Labs/kevin-develop)
 }
+

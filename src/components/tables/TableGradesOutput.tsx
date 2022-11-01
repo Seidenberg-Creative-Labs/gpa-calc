@@ -35,7 +35,7 @@ const TableGradesOutput = (props: any) => {
     return (
         <CacheProvider value={muiCache}>
             {/* width="500px" */}
-            <Box>
+            <Box sx={{width:"600px"}}>
                 <ThemeProvider theme={getMuiTheme()}>
                     <MUIDataTable title="Calculated Grades" data={props.data} columns={columns} options={options} />
                 </ThemeProvider>
