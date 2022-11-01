@@ -16,6 +16,7 @@ const TableCourseInput = (props: any) => {
         data[tableMeta.rowIndex][tableMeta.columnIndex] = value;
     };
 
+    //Input Compumns in Chart
     const columns = [
         {
             name: "Course Title",
@@ -95,6 +96,7 @@ const TableCourseInput = (props: any) => {
         responsive: true,
     };
 
+    // Custom styling for MUI table
     const getMuiTheme = () =>
         createTheme({
             components: {
