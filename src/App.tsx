@@ -27,6 +27,7 @@ import { CSSTransition } from "react-transition-group";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Grow from '@mui/material/Grow';
 import LoadingButton from '@mui/lab/LoadingButton';
+import ScaleImage from "./components/tables/ScaleImage";
 
 const App = () => {
     // TableCourseInput data state (2D array)
@@ -61,7 +62,7 @@ const App = () => {
                     {/* Dropdown component */}
                     <Drop />
 
-                    <Grid container direction={{xs: 'column', lg: 'row'}} id='rowFlex'>
+                    <Grid container id='gridContainer'>
                         <div className="table-button">
                             <TableCourseInput id="table-input" data={data} setData={setData} />
                             <Stack
@@ -174,7 +175,7 @@ const App = () => {
                                 </Button>
                             </Stack>
                         </div>
-                        <Grid item id="ScreenShotsWIP">
+                        <div id="PictureAndOutput">
                             <CSSTransition
                                 in={showOutput}
                                 timeout={300}
@@ -193,22 +194,9 @@ const App = () => {
                                 </div>
                             </CSSTransition>
                             {/* Display relevant scale image based on getScale val */}
-                            {showOutput && getScale === "5 Point Scale" && (
-                                <img src="./5scale.png" width={"500px"} />
-                            )}
-                            {showOutput && getScale === "4 Point Scale" && (
-                                <img src="./4scale.png" width={"500px"} />
-                            )}
-                            {showOutput && getScale === "Most Common Scale" && (
-                                <img src="./mostCommon.png" width={"500px"} />
-                            )}
-                            {showOutput && getScale === "Letter Grade Scale" && (
-                                <img src="./letterGrade.png" width={"500px"} />
-                            )}
-                            {showOutput && getScale === "10 Point Scale" && (
-                                <img src="./10scale.png" width={"500px"} />
-                            )}
-                        </Grid>
+                            
+                            {showOutput && ScaleImage()}
+                        </div>
                     </Grid>
                 </Grid>
                 {/* Dialog to select number of rows to add */}
@@ -255,11 +243,8 @@ const App = () => {
                         </LoadingButton>
                     </DialogActions>
                 </Dialog>
-                {/* Error message container */}
-                            {/* showOutput && ScaleImage() */}
-                        </div>
-                    </div>
-                </div>
+                    {/* Error message container */}
+                            
                 <ToastContainer position="bottom-center" />
             </body>
         </Grid>
