@@ -61,10 +61,9 @@ const App = () => {
                 <Grid container direction='column'>
                     {/* Dropdown component */}
                     <Drop />
-
-                    <Grid container id='gridContainer'>
+                    <div id="rowFlex">
                         <div className="table-button">
-                            <TableCourseInput id="table-input" data={data} setData={setData} />
+                            <TableCourseInput data={data} setData={setData} />
                             <Stack
                                 spacing={10.25}
                                 width='40%'
@@ -197,8 +196,9 @@ const App = () => {
                             
                             {showOutput && ScaleImage()}
                         </div>
+                        </div>
                     </Grid>
-                </Grid>
+
                 {/* Dialog to select number of rows to add */}
                 <Dialog
                     open={dialogOpen}
@@ -247,7 +247,7 @@ const App = () => {
                             
                 <ToastContainer position="bottom-center" />
             </body>
-        </Grid>
+        </Grid> */}
     );
 };
 
