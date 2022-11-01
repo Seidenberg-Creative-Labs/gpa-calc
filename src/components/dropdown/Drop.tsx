@@ -29,18 +29,18 @@ const Drop = () => {
                     </Select>
                 </FormControl>
             </div>
-            <CSSTransition
-                in={country != ""}
-                timeout={300}
-                classNames="fade"
-                unmountOnExit
-            >
-            <div className="alignLabel" style={{width: '100vh', display: 'flex', flexDirection: 'row'}}>
-                <label htmlFor="scale-dropdown">Grading Scale :&emsp;</label>
-                <GpaDrop id="scale-dropdown" country={country}/>
-                <InfoTooltip country={country} />
-            </div>
-            </CSSTransition>
+                <CSSTransition
+                    in={country != ""}
+                    timeout={300}
+                    classNames="fade"
+                    unmountOnExit
+                >
+                    <div className="alignLabel" style={{width: '100vh', display: 'flex', flexDirection: 'row'}}>
+                        <label htmlFor="scale-dropdown">Grading Scale :&emsp;</label>
+                        <GpaDrop id="scale-dropdown" country={country}/>
+                        <InfoTooltip country={country} />
+                    </div>
+                </CSSTransition>
         </div>
     );
 };
