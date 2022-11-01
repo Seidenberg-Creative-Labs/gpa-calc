@@ -257,9 +257,6 @@ const App = () => {
                 </Dialog>
                 {/* Error message container */}
                             {/* showOutput && ScaleImage() */}
-                        </div>
-                    </div>
-                </div>
                 <ToastContainer position="bottom-center" />
             </body>
         </Grid>
