@@ -3,10 +3,11 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
 
 let getScale: string;
-
+// Country Drop Down
 const GpaDrop = ({ country }: any) => {
+    // Setting the Scale
     const [scale, setScale] = useState('');
-
+    // Exporting the Scale Value
     const handleChange = (e: SelectChangeEvent) => {
         setScale(e.target.value);
         getScale = e.target.value;
@@ -21,9 +22,10 @@ const GpaDrop = ({ country }: any) => {
                     onChange={handleChange}
                     label={'Grading Scale'}
                 >
+                    {/* China Scales */}
                     {country === 'China' ? <MenuItem value={"5 Point Scale"}>5 Point Scale</MenuItem> : null}
                     {country === 'China' ? <MenuItem value={"4 Point Scale"}>4 Point Scale</MenuItem> : null}
-
+                    {/* Indian Scales */}
                     {country === 'India' ? <MenuItem value={"Most Common Scale"}>Most Common Scale</MenuItem> : null}
                     {country === 'India' ? <MenuItem value={"Letter Grade Scale"}>Letter Grade Scale</MenuItem> : null}
                     {country === 'India' ? <MenuItem value={"Choice Based System"}>Choice Based Credit Scale</MenuItem> : null}

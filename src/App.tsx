@@ -4,6 +4,7 @@ import "./App.css";
 import TableCourseInput from "./components/tables/TableCourseInput";
 import "react-dropdown/style.css";
 import Drop from "./components/dropdown/Drop";
+import {ScaleImage} from "./components/tables/ScaleImage";
 import { getScale } from "./components/dropdown/GpaDrop";
 import WebHeader from "./components/WebHeader";
 import {

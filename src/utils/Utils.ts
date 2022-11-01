@@ -1,6 +1,6 @@
 // @ts-nocheck
 import {toast} from "react-toastify";
-
+//Convert International Grades to U.S GPA
 const convertGPA = (scale:string, data:string[][]) => {
 
     var letter_gpa:string[] = [];
@@ -121,7 +121,7 @@ const convertGPA = (scale:string, data:string[][]) => {
 }
 
 
-
+// Calculating GPA
 export const calcGpa = (scale:string,data:string[][]) => {
     var gpa = convertGPA(scale,data);
     
@@ -138,6 +138,7 @@ export const calcGpa = (scale:string,data:string[][]) => {
     return [gpa, avg_gpa];
 };
 
+//Exporting Grades
 export const getGradeOutput = (scale:string, data:string[][]) => {
     const courseOutput = data.map(arr => {
         return arr.slice();
@@ -153,6 +154,7 @@ export const getGradeOutput = (scale:string, data:string[][]) => {
     return courseOutput;
 }
 
+//Converting to U.S Letter Grade
 const getLetterGrade = (grade: number) => {
     if (grade >= 4.0) {
         return "A";
@@ -191,7 +193,7 @@ export const deleteRowData = (arr, data) => {
 
     return newData;
 };
-
+//CSS Pop-up
 export const displayToast = text => {
     toast.error(text, {
         position: toast.POSITION.BOTTOM_CENTER,
