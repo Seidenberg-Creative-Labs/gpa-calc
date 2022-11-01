@@ -101,7 +101,6 @@ const TableCourseInput = (props: any) => {
                     },
                 },
             },
-            spacing: 1,
         });
 
     return (

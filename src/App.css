@@ -116,8 +116,6 @@ tfoot th {
 #table-output {
   padding-top: 23vh;
   flex-direction: column;
-  margin-right: 10vw;
-  width: 580px;
 }
 
 /* output table */
@@ -179,14 +177,4 @@ tfoot th {
   height: 16vh;
   padding: 0;
   margin: 0;
-}
-#gridContainer{
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 10px;
-}
-
-#table-input{
-  grid-row-start: 1;
-  grid-row-end: 1;
 }
