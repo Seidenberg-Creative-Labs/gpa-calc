@@ -61,7 +61,7 @@ const App = () => {
                     {/* Dropdown component */}
                     <Drop />
 
-                    <Grid container direction={{xs: 'column', lg: 'row'}} id='rowFlex'>
+                    <Grid container direction={{xs: 'column', md: 'row', lg: 'row'}} id='rowFlex'>
                         <div className="table-button">
                             <TableCourseInput id="table-input" data={data} setData={setData} />
                             <Stack
@@ -256,10 +256,7 @@ const App = () => {
                     </DialogActions>
                 </Dialog>
                 {/* Error message container */}
-                            {/* showOutput && ScaleImage() */}
-                        </div>
-                    </div>
-                </div>
+                {/* showOutput && ScaleImage() */}
                 <ToastContainer position="bottom-center" />
             </body>
         </Grid>
