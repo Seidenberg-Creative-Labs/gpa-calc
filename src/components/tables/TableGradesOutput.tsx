@@ -5,7 +5,8 @@ import {CacheProvider} from "@emotion/react";
 import {Box, createTheme, ThemeProvider} from "@mui/material";
 
 const TableGradesOutput = (props: any) => {
-    const columns = ["Course", "Credits/Hours", "Grade", "US Grade", "Grade Point"];
+    //Table Column Names
+    const columns = ["Course", "Credits / Hours", "Grade", "US Grade", "Grade Point"];
 
     const options = {
         selection: false,
@@ -19,7 +20,6 @@ const TableGradesOutput = (props: any) => {
         "prepend": false,
     });
 
-
     // Custom styling for MUI table
     const getMuiTheme = () => createTheme({
         components: {
@@ -27,18 +27,15 @@ const TableGradesOutput = (props: any) => {
                 styleOverrides: {
                     root: {
                         textAlign:'center',
-                        color:'black',
                     }
                 }
             },
         },
     });
-        
 
     return (
         <CacheProvider value={muiCache}>
-            {/* width="500px" */}
-            <Box>
+            <Box sx={{width:"600px"}}>
                 <ThemeProvider theme={getMuiTheme()}>
                     <MUIDataTable title="Calculated Grades" data={props.data} columns={columns} options={options} />
                 </ThemeProvider>

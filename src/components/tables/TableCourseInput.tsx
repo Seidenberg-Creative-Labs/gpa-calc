@@ -1,7 +1,13 @@
 import React from "react";
-import {createTheme,FormControlLabel,TextField,ThemeProvider} from "@mui/material";
+import {
+    Box,
+    createTheme,
+    FormControlLabel,
+    TextField,
+    ThemeProvider,
+} from "@mui/material";
 import MUIDataTable from "mui-datatables";
-import { deleteRowData, displayToast } from "../../utils/Utils";
+import { deleteRowData } from "../../utils/Utils";
 
 const TableCourseInput = (props: any) => {
     // Update data when cell value changed
@@ -10,13 +16,14 @@ const TableCourseInput = (props: any) => {
         data[tableMeta.rowIndex][tableMeta.columnIndex] = value;
     };
 
+    //Input Compumns in Chart
     const columns = [
         {
             name: "Course Title",
             options: {
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
-                        sx={{ width: 160}}
+                        sx={{ width: 160 }}
                         control={<TextField value={value} />}
                         label=""
                         value={value}
@@ -29,11 +36,11 @@ const TableCourseInput = (props: any) => {
             },
         },
         {
-            name: "Credits / Hours *",
+            name: "Credits / Hours*",
             options: {
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
-                        sx={{ width: 70}}
+                        sx={{ width: 70 }}
                         control={
                             <TextField value={value || ""} type="number" />
                         }
@@ -52,11 +59,11 @@ const TableCourseInput = (props: any) => {
             },
         },
         {
-            name: "Grade *",
+            name: "Grade*",
             options: {
                 customBodyRender: (value, tableMeta, updateValue) => (
                     <FormControlLabel
-                        sx={{ width: 100}}
+                        sx={{ width: 100 }}
                         control={
                             <TextField value={value || ""} type="number" />
                         }
@@ -89,6 +96,7 @@ const TableCourseInput = (props: any) => {
         responsive: true,
     };
 
+    // Custom styling for MUI table
     const getMuiTheme = () =>
         createTheme({
             components: {
@@ -96,7 +104,6 @@ const TableCourseInput = (props: any) => {
                     styleOverrides: {
                         root: {
                             textAlign: "center",
-                            color: "black",
                         },
                     },
                 },
@@ -104,14 +111,16 @@ const TableCourseInput = (props: any) => {
         });
 
     return (
-        <ThemeProvider theme={getMuiTheme()}>
-            <MUIDataTable
-                title={"Course List"}
-                data={props.data}
-                columns={columns}
-                options={options}
-            />
-        </ThemeProvider>
+        <Box sx={{ width: "585px" }}>
+            <ThemeProvider theme={getMuiTheme()}>
+                <MUIDataTable
+                    title={"Course List"}
+                    data={props.data}
+                    columns={columns}
+                    options={options}
+                />
+            </ThemeProvider>
+        </Box>
     );
 };
 

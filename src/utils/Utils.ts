@@ -1,11 +1,11 @@
 // @ts-nocheck
 import {toast} from "react-toastify";
-
-
+//Convert International Grades to U.S GPA
 const convertGPA = (scale:string, data:string[][]) => {
 
+    var letter_gpa:string[] = [];
     var number_gpa:GLfloat[] = [];
-    
+
     switch (scale){
 
         case "5 Point Scale":
@@ -76,7 +76,6 @@ const convertGPA = (scale:string, data:string[][]) => {
         break;
 
         case "IIT Scale":
-
             for(const element of data) {
                 if (+element[2] == 10) {
                     number_gpa.push(4.0);
@@ -90,10 +89,8 @@ const convertGPA = (scale:string, data:string[][]) => {
                     number_gpa.push(2.7); 
                 } else if (+element[2] <= 5 && +element[2] > 2) {
                     number_gpa.push(2.0)
-                } else if( +element[2] < 2 && +element[2] >= 0) {
-                    number_gpa.push(0.0); 
                 } else {
-                    number_gpa.push("Invalid Input");
+                    number_gpa.push(0.0); 
                 }
 
                 //Ask bayu decimal grade scale. Ex. 6.5 or 4.0 etc.
@@ -110,10 +107,8 @@ const convertGPA = (scale:string, data:string[][]) => {
                     number_gpa.push(3.0);
                 } else if (+element[2] == 5 || +element[2] == 4) {
                     number_gpa.push(2.0);
-                } else if( +element[2] <4 && +element[2]  >=0){
-                    number_gpa.push(0.0); 
                 } else {
-                    number_gpa.push("Invalid Input");
+                    number_gpa.push(0.0); 
                 }
                 
                 //Ask bayu decimal grade scale. Ex. 6.5 or 4.0 etc.
@@ -122,15 +117,14 @@ const convertGPA = (scale:string, data:string[][]) => {
         
 
     }
-
     return number_gpa;
 }
 
 
-
+// Calculating GPA
 export const calcGpa = (scale:string,data:string[][]) => {
     var gpa = convertGPA(scale,data);
-
+    
     var qpa_:number[] = [];
     var total_QPA:number = 0;
     var total_credits:number = 0;
@@ -144,6 +138,7 @@ export const calcGpa = (scale:string,data:string[][]) => {
     return [gpa, avg_gpa];
 };
 
+//Exporting Grades
 export const getGradeOutput = (scale:string, data:string[][]) => {
     const courseOutput = data.map(arr => {
         return arr.slice();
@@ -159,6 +154,7 @@ export const getGradeOutput = (scale:string, data:string[][]) => {
     return courseOutput;
 }
 
+//Converting to U.S Letter Grade
 const getLetterGrade = (grade: number) => {
     if (grade >= 4.0) {
         return "A";
@@ -197,7 +193,7 @@ export const deleteRowData = (arr, data) => {
 
     return newData;
 };
-
+//CSS Pop-up
 export const displayToast = text => {
     toast.error(text, {
         position: toast.POSITION.BOTTOM_CENTER,

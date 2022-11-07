@@ -6,6 +6,7 @@ import InfoTooltip from "./InfoTooltip";
 import { CSSTransition } from "react-transition-group";
 
 const Drop = () => {
+    //Setting Country
     const [country, setCountry] = useState("");
 
     const handleChange = (e: SelectChangeEvent) => {
@@ -24,6 +25,7 @@ const Drop = () => {
                         onChange={handleChange}
                         label={"Country"}
                     >
+                        {/* Selections of Countries from Dropdowns */}
                         <MenuItem value={"China"}>China</MenuItem>
                         <MenuItem value={"India"}>India</MenuItem>
                     </Select>

@@ -3,6 +3,7 @@ import Popup from "reactjs-popup";
 import {IoInformationCircleOutline} from "react-icons/io5";
 import 'reactjs-popup/dist/index.css';
 
+// Tool tip info
 const InfoTooltip = (props: any) => {
     const textChina = "Select the Five-Point Scale at all times unless your transcript has different grade ranges published on your documents."
 

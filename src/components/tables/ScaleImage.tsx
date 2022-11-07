@@ -1,6 +1,6 @@
 import { getScale } from "../dropdown/GpaDrop"
 
-
+//Display Screenshots of Grades Conversions
 const ScaleImage = () => {
 
         if(getScale == "5 Point Scale"){
