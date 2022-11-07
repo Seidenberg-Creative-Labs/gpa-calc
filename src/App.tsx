@@ -65,10 +65,9 @@ const App = () => {
                     {/* Dropdown component */}
                     <Drop />
 
-                    <Grid
-                        container
-                        direction={{ xs: "column", lg: "row" }}
-                    >
+
+                    <Grid container direction={{xs: 'column', md: 'row', lg: 'row'}} id='rowFlex'>
+
                         <div className="table-button">
                             <TableCourseInput data={data} setData={setData} />
                             <Stack
@@ -246,62 +245,70 @@ const App = () => {
                                 </div>
                             </CSSTransition>
                             {/* Display relevant scale image based on getScale val */}
-
-                            {showOutput && ScaleImage()}
-                        </div>
-
-                        {/* Dialog to select number of rows to add */}
-                        <Dialog
-                            open={dialogOpen}
-                            onClose={() => setDialogOpen(false)}
-                        >
-                            <DialogTitle id="alert-dialog-title">
-                                {`Enter the number of courses you'd like to add:`}
-                            </DialogTitle>
-                            <DialogContent>
-                                <TextField
-                                    type="number"
-                                    value={dialogValue}
-                                    onChange={(event) => {
-                                        if (event.target.value >= 0) {
-                                            setDialogValue(event.target.value);
-                                        }
-                                    }}
-                                />
-                            </DialogContent>
-                            <DialogActions>
-                                <Button
-                                    onClick={() => {
-                                        setDialogOpen(false);
-                                        setDialogValue(1);
-                                    }}
-                                >
-                                    Cancel
-                                </Button>
-                                <LoadingButton
-                                    onClick={() => {
-                                        setLoading(true);
-                                        for (let i = 0; i < dialogValue; i++) {
-                                            data.push(["", "1", "0"]);
-                                        }
-                                        setLoading(false);
-                                        setDialogOpen(false);
-                                        setDialogValue(1);
-                                    }}
-                                    loading={loading}
-                                    loadingPosition="end"
-                                    variant="contained"
-                                    size="small"
-                                    autoFocus
-                                >
-                                    Confirm
-                                </LoadingButton>
-                            </DialogActions>
-                        </Dialog>
-                        {/* Error message container */}
-                        {/* showOutput && ScaleImage() */}
+                            {showOutput && getScale === "5 Point Scale" && (
+                                <img src="./5scale.png" width={"500px"} />
+                            )}
+                            {showOutput && getScale === "4 Point Scale" && (
+                                <img src="./4scale.png" width={"500px"} />
+                            )}
+                            {showOutput && getScale === "Most Common Scale" && (
+                                <img src="./mostCommon.png" width={"500px"} />
+                            )}
+                            {showOutput && getScale === "Letter Grade Scale" && (
+                                <img src="./letterGrade.png" width={"500px"} />
+                            )}
+                            {showOutput && getScale === "10 Point Scale" && (
+                                <img src="./10scale.png" width={"500px"} />
+                            )}
+                        </Grid>
                     </Grid>
-                </div>
+                </Grid>
+                {/* Dialog to select number of rows to add */}
+                <Dialog
+                    open={dialogOpen}
+                    onClose={() => setDialogOpen(false)}
+                    >
+                    <DialogTitle id='alert-dialog-title'>
+                        {`Enter the number of courses you'd like to add:`}
+                    </DialogTitle>
+                    <DialogContent>
+                        <TextField
+                            type='number'
+                            value={dialogValue}
+                            onChange={event => {
+                                if (event.target.value >= 0) {
+                                    setDialogValue(event.target.value);
+                                }
+                            }}
+                        />
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => {
+                            setDialogOpen(false);
+                            setDialogValue(1);
+                        }}>Cancel</Button>
+                        <LoadingButton
+                            onClick={() => {
+                                setLoading(true);
+                                for (let i = 0; i < dialogValue; i++) {
+                                    data.push(["", "1", "0"]);
+                                }
+                                setLoading(false);
+                                setDialogOpen(false);
+                                setDialogValue(1);
+                            }}
+                            loading={loading}
+                            loadingPosition='end'
+                            variant='contained'
+                            size='small'
+                            autoFocus
+                        >
+                            Confirm
+                        </LoadingButton>
+                    </DialogActions>
+                </Dialog>
+                {/* Error message container */}
+                {/* showOutput && ScaleImage() */}
                 <ToastContainer position="bottom-center" />
             </body>
         </Grid>
