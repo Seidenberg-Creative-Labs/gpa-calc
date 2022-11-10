@@ -55,19 +55,18 @@ const App = () => {
     const [loading, setLoading] = useState(false);
 
     return (
+        // Page container
         <Grid container>
-            {/* Page header */}
-            <header className="header">
+            {/* Header with logo images */}
+            <div className="header">
                 <WebHeader />
-            </header>
-            <body className="body">
-                <div id="rowFlex">
-                    {/* Dropdown component */}
+            </div>
+            {/* Main content container */}
+            <div className="body">
+                {/* Dropdown container */}
+                <Grid>
                     <Drop />
-
-
-                    <Grid container direction={{xs: 'column', md: 'row', lg: 'row'}} id='rowFlex'>
-
+                    <Grid container justifyContent="flex-start" alignItems="flex-start" flexDirection={{xs: 'column', sm: 'column', md: 'row', lg: 'row'}}>
                         <div className="table-button">
                             <TableCourseInput data={data} setData={setData} />
                             <Stack
@@ -85,7 +84,7 @@ const App = () => {
                                         variant="contained"
                                         ref={anchorRef}
                                         aria-label="split button"
-                                     >
+                                    >
                                         <Button
                                             onClick={() => {
                                                 if (selectedButtonIdx === 0) {
@@ -128,7 +127,7 @@ const App = () => {
                                         role={undefined}
                                         transition
                                         disablePortal
-                                     >
+                                    >
                                         {({ TransitionProps, placement }) => (
                                             <Grow
                                                 {...TransitionProps}
@@ -260,14 +259,14 @@ const App = () => {
                             {showOutput && getScale === "10 Point Scale" && (
                                 <img src="./10scale.png" width={"500px"} />
                             )}
-                        </Grid>
+                        </div>
                     </Grid>
                 </Grid>
                 {/* Dialog to select number of rows to add */}
                 <Dialog
                     open={dialogOpen}
                     onClose={() => setDialogOpen(false)}
-                    >
+                >
                     <DialogTitle id='alert-dialog-title'>
                         {`Enter the number of courses you'd like to add:`}
                     </DialogTitle>
@@ -310,7 +309,7 @@ const App = () => {
                 {/* Error message container */}
                 {/* showOutput && ScaleImage() */}
                 <ToastContainer position="bottom-center" />
-            </body>
+            </div>
         </Grid>
     );
 };

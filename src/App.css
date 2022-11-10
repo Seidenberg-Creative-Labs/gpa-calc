@@ -120,23 +120,16 @@ tfoot th {
 
 .table-button{
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: column;
   margin-right: 10vw;
-  margin-bottom: 2vh;
 }
 
 #table-output {
-  padding-top: 23vh;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
 }
 
-#table-output {
-  /*margin-top: 25.3vh;*/
-  padding-top: 23vh;
-  position: static;
-}
 /* output table */
 .mui-1ygcj2i-MuiTableCell-root{
   padding: 0 !important;
@@ -180,11 +173,12 @@ tfoot th {
   -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
 
-#ScreenShotsWIP{
+#ScreenShotsWIP {
   display: flex;
   flex-direction: column;
-  align-items: center !important;
-  margin-top: -60px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10%;
 }
 
 #rowFlex{
