@@ -18,5 +18,22 @@ The project is built on **React.JS** using **Vite**.
 2. Install dependencies with `yarn install`
 3. Start the dev server with `vite`
 
-### Common Errors
+
+## Building for Production
+Verify that all images are stored in and accessed from the root of the `public` folder.
+
+---
+### Using NPM
+1. Build dist folder with `npx vite build`
+
+### Using Yarn
+1. Build dist folder with `vite build`
+
+---
+### The following steps are for deployment to GitHub Pages
+2. Add dist folder with `git add dist -f`
+3. Commit files, for example `git commit -m "adding dist"`
+4. Push to GH Pages with `git subtree push --prefix dist origin gh-pages`
+
+## Common Errors
 
