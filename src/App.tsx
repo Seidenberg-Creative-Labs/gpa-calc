@@ -59,18 +59,17 @@ const App = () => {
         <div>
             {/* Header with logo images */}
             <div className="header">
-                <WebHeader/>
+                <WebHeader />
             </div>
             {/* Main content container */}
             <Grid item direction="column" className="body">
-                {/* Dropdown container */}
-                <Drop/>
+                {/* Dropdown component */}
+                <Drop />
                 <Grid container flexWrap="wrap" columnSpacing={2} justifyContent="center" alignItems="flex-start"
                       flexDirection={{xs: 'column', sm: 'column', md: 'row', lg: 'row'}}>
                     <Grid item xs={12} sm={12} lg={6} direction='column' className="table-button">
                         <TableCourseInput data={data} setData={setData}/>
                         <Stack
-
                             justifyContent='space-evenly'
                             direction="row"
                             id="btnMenu"
@@ -186,7 +185,6 @@ const App = () => {
                             <Button
                                 size="large"
                                 variant="contained"
-                                // style={{minWidth: "60%"}}
                                 onClick={() => {
                                     if (getScale) {
                                         setConversionData(
@@ -206,7 +204,6 @@ const App = () => {
                             <Button
                                 variant="contained"
                                 size="large"
-                                // style={{minWidth: "60%"}}
                                 onClick={() => {
                                     setShowOutput(false);
                                     setData([
@@ -220,7 +217,8 @@ const App = () => {
                             </Button>
                         </Stack>
                     </Grid>
-                    <Grid item id="Output" xs={12} sm={12} lg={6} marginTop={{xs: '1em', sm: '1em', md: '1em', lg: '0'}}>
+                    <Grid item id="ScreenShotsWIP" alignItems="center" xs={12} sm={12} lg={6}
+                          marginTop={{xs: '1em', sm: '1em', md: '1em', lg: '0'}}>
                         <CSSTransition
                             in={showOutput}
                             timeout={300}
