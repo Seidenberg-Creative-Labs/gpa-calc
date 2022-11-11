@@ -111,7 +111,7 @@ const TableCourseInput = (props: any) => {
         });
 
     return (
-        <Box sx={{ width: "585px" }}>
+        <Box sx={{ width: "100%" }}>
             <ThemeProvider theme={getMuiTheme()}>
                 <MUIDataTable
                     title={"Course List"}

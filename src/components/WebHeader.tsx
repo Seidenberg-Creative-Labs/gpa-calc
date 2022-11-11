@@ -3,7 +3,7 @@ import {Grid} from "@mui/material";
 
 const WebHeader = () => {
     return (
-        <Grid container alignItems='center' width='100vw' justifyContent='space-between'>
+        <Grid container flexDirection='row' alignItems='center' width='100vw' justifyContent='space-between'>
             <Grid item>
                 <img className="img-header" src="./Pace_SEIDENBERG.png" alt="Pace University Logo"></img>
             </Grid>
