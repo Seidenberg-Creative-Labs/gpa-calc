@@ -4,8 +4,7 @@ import "./App.css";
 import TableCourseInput from "./components/tables/TableCourseInput";
 import "react-dropdown/style.css";
 import Drop from "./components/dropdown/Drop";
-import {ScaleImage} from "./components/tables/ScaleImage";
-import {getScale} from "./components/dropdown/GpaDrop";
+import { getScale } from "./components/dropdown/GpaDrop";
 import WebHeader from "./components/WebHeader";
 import {
     Button,
@@ -64,7 +63,7 @@ const App = () => {
             {/* Main content container */}
             <Grid item direction="column" className="body">
                 {/* Dropdown component */}
-                <Drop />
+                <Drop/>
                 <Grid container flexWrap="wrap" columnSpacing={2} justifyContent="center" alignItems="flex-start"
                       flexDirection={{xs: 'column', sm: 'column', md: 'row', lg: 'row'}}>
                     <Grid item xs={12} sm={12} lg={6} direction='column' className="table-button">

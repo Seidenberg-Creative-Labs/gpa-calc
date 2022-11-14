@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GpaDrop } from "./GpaDrop";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
@@ -10,14 +10,14 @@ const Drop = () => {
     const [country, setCountry] = useState("");
 
     const handleChange = (e: SelectChangeEvent) => {
-        setCountry(e.target.value);
+        setCountry(e.target.value)
     };
 
     return (
         <div id="gpa-dropdown">
             <div className="alignLabel">
                 <label htmlFor="dropdown-label">Country :&emsp;</label>
-                <FormControl size="small" sx={{ width: 130 }}>
+                <FormControl size="small" sx={{ width: 'auto', minWidth: 109}}>
                     <InputLabel id="dropdown-label">Country</InputLabel>
                     <Select
                         id="dropdown-selector"
@@ -40,7 +40,10 @@ const Drop = () => {
                     <div className="alignLabel" style={{width: '100vh', display: 'flex', flexDirection: 'row'}}>
                         <label htmlFor="scale-dropdown">Grading Scale :&emsp;</label>
                         <GpaDrop id="scale-dropdown" country={country}/>
-                        <InfoTooltip country={country} />
+
+                        <InfoTooltip country={country}/>
+
+                        {/* Passing the country value another way than this way */}
                     </div>
                 </CSSTransition>
         </div>
