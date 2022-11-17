@@ -91,6 +91,7 @@ const TableCourseInput = (props: any) => {
         filter: false,
         onRowsDelete: (e) => {
             props.setData(deleteRowData(e.data, props.data));
+            console.log(e.data)
         },
         pagination: false,
         responsive: true,

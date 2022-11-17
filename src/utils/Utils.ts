@@ -187,12 +187,16 @@ const getLetterGrade = (grade: number) => {
 export const deleteRowData = (arr, data) => {
     const newData = data;
 
+    let counter:number = 0
+
     arr.forEach(row => {
-        newData.splice(row.index, 1);
+        newData.splice(row.index - counter, 1);
+        counter += 1
     });
 
-    return newData;
+     return newData
 };
+
 //CSS Pop-up
 export const displayToast = text => {
     toast.error(text, {
