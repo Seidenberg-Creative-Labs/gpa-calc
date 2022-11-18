@@ -28,16 +28,12 @@ const Drop = () => {
 
     //Hides India scale when Country isn't India
     const indiaHidden = () => {
-        if(country !== 'India')
-            return true
-        return false
+        return country !== 'India'
     }
 
     //Hides China scale when Country isn't China
     const chinaHidden = () => {
-        if(country !== 'China')
-            return true
-        return false
+        return country !== 'China'
     }
     
     return (
