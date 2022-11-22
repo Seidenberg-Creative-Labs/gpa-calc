@@ -212,7 +212,7 @@ const App = () => {
                                     ]);
                                 }}
                             >
-                                Reset Table
+                                Resetsss Table
                             </Button>
                         </Stack>
                     </Grid>
