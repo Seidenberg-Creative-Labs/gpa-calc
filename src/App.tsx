@@ -256,6 +256,12 @@ const App = () => {
                         {showOutput && getScale === "10 Point Scale" && (
                             <img src="./10scale.png" width={"500px"}/>
                         )}
+                        {showOutput && getScale === "Choice Based System" && (
+                            <img src="./ChoiceBased.png" width={"500px"}/>
+                        )}
+                        {showOutput && getScale === "IIT Scale" && (
+                            <img src="./IIT.png" width={"500px"}/>
+                        )}
                     </Grid>
                 </Grid>
                 {/* Dialog to select number of rows to add */}
