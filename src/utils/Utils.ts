@@ -185,14 +185,20 @@ const getLetterGrade = (grade: number) => {
 
 // Delete row(s) & corresponding data from TableCourseInput
 export const deleteRowData = (arr, data) => {
-    const newData = data;
+    let newData = [];
 
     arr.forEach(row => {
-        newData.splice(row.index, 1);
+        data[row.index] = -1
+    })
+
+    data.forEach(element => {
+        if(element !== -1)
+            newData.push(element)
     });
 
     return newData;
 };
+
 //CSS Pop-up
 export const displayToast = text => {
     toast.error(text, {

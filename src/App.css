@@ -17,25 +17,11 @@
 }
 
 .body {
-  margin-top: 5vh;
+  margin-top: 2% !important;
   display: flex;
   flex-direction: row;
   padding-left: 3vw;
   width: 100%;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 #paceSCIS {
@@ -96,7 +82,7 @@ tfoot th {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 18vh;
+  height: 19vh;
   align-items: flex-start;
 }
 

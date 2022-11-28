@@ -30,6 +30,13 @@ const TableGradesOutput = (props: any) => {
                     }
                 }
             },
+            MuiTableCell: {
+                styleOverrides: {
+                    head: {
+                        padding:0
+                    }
+                }
+            }
         },
     });
 
