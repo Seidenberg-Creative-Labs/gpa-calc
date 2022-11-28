@@ -158,6 +158,7 @@ const App = () => {
                                                             <MenuItem
                                                                 key={option}
                                                                 selected={index === selectedButtonIdx}
+                                                                disabled={index === selectedButtonIdx}
                                                                 onClick={(
                                                                     event
                                                                 ) => {
